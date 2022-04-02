@@ -1,54 +1,83 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Game-snake</title>
-    <style>
-        body {
-            height: 100%;
-            margin: 0;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        canvas {
-            margin: 100px;
-            background-color: #999999;
-            border: 1px solid black;
-        }
-    </style>
-</head>
-<body>
-    <!-- tao box-game -->
-    <canvas width="400" height="400" id="game"></canvas>
+
+{% extends 'main/base.html' %}
+{% block title %} Game-Snake {% endblock %}
+
+{% block body %}
+<style>
+    #score{
+        width:200px;
+        height:100px;
+        margin-bottom: 25px;
+    }
+    canvas {
+        margin: 10px;
+        background-color: #999999;
+        border: 1px solid black;
+    }
+</style>
+    <h2>Game Rắn Săn Mồi</h2>
+     {% if error_message %}
+          <div class="alert alert-primary" role="alert">
+            {{error_message}}
+          </div>
+    {% endif %}
+    <!-- game -->
+    
+    
+    <div >
+        <table>
+            <tr>
+                <th><canvas width="400" height="400" id="game"></canvas></th>
+                <th style="margin-top: 10px;"><h2  id="score" ></h2></th>
+            </tr>
+        </table>
+    </div>
+        <!-- tao box-game -->
+        
     <script>
+        // tao ham ramdom tu min den max(bao gom ca 2)
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min+1)) + min;
+        }
+        //random huong di chuyen
+        function randomTrend() {
+            let x = getRandomInt(-1, 1);
+            let y =0
+            if (x == 0) {
+                fy = getRandomInt(0, 1)
+                if (fy == 1) { y = 1; }
+                else { y = -1; }
+            }
+            else {
+                y = 0;
+            }
+            return [x, y];// tra ve 2 value
+        }
         // gán box-game thành biến
         var canvas = document.getElementById('game');
         var context = canvas.getContext('2d');
-        //giá trị 1 ô
+        var dxdy= randomTrend()
+        //giá trị 1 ô la 16px
         var grid = 16; // 25*25 ô
         // khởi tạo đối tượng rắn là 1 ô vuông
         var snake = {
-            //vị trí của đầu rắn
-            x: 160, 
+            //vị trí của đầu rắn (ở giữa map)
+            x: 160,
             y: 160,
-            
-            //hướng di chuyển
-            dx: grid, 
-            dy: 0,
 
+            //hướng di chuyển
+            dx: dxdy[0]*grid,
+            dy: dxdy[1]*grid,
             cells: [],
             maxCells: 4
         };
         var count = 0;
         var apple = {
-            x: random(1,25)*25,
-            y: random(1,25)*25,
+            x: getRandomInt(1, 24) * grid,
+            y: getRandomInt(1, 24) * grid,
         };
 
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
+        let score =0
         // game loop
         function loop() {
             //hàm này giống như setTimeout, sẽ gọi lại hàm loop khi loop thực thi xong
@@ -58,10 +87,14 @@
                 return;
             }
             count = 0;
+
+            
+            
             context.clearRect(0, 0, canvas.width, canvas.height);
-            snake.x += snake.dx; // mỗi loop rắn sẽ di chuyển thêm 1dx đơn vị
+            snake.x += snake.dx; // mỗi loop rắn sẽ di chuyển thêm 1 đơn vị
             snake.y += snake.dy;
-            // khi snake đụng tường sẽ chạy lại từ edge đối diện
+
+            // khi snake đụng tường sẽ chạy lại từ canh đối diện
             if (snake.x < 0) {
                 snake.x = canvas.width - grid;
             }
@@ -87,28 +120,26 @@
             context.fillStyle = 'green';
             snake.cells.forEach(function (cell, index) {
                 context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
-                // snake ate apple
+                // snake eat apple
                 if (cell.x === apple.x && cell.y === apple.y) {
                     snake.maxCells++;
-                    apple.x = getRandomInt(0, 25) * grid;
-                    apple.y = getRandomInt(0, 25) * grid;
+                    apple.x = getRandomInt(1, 24) * grid;
+                    apple.y = getRandomInt(1, 24) * grid;
+                    score++;
                 }
                 // check va chạm khi rắn đụng đuôi
                 for (var i = index + 1; i < snake.cells.length; i++) {
                     // va chạm thì reset game
                     if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
-                        snake.x = 160;
-                        snake.y = 160;
-                        snake.cells = [];
-                        snake.maxCells = 4;
-                        snake.dx = grid;
-                        snake.dy = 0;
-                        apple.x = getRandomInt(0, 25) * grid;
-                        apple.y = getRandomInt(0, 25) * grid;
+                        alert("Your score: "+score);
+                        location.reload();
+                        break;
                     }
                 }
             });
+            document.getElementById("score").innerHTML="Your score: "+score
         }
+        
         //bắt sự kiện bàn phím ấn xuống
         document.addEventListener('keydown', function (e) {
             // lọc sự kiện keydown để rắn không di ngược lại
@@ -131,5 +162,5 @@
         });
         requestAnimationFrame(loop);
     </script>
-</body>
-</html>
+    
+{% endblock %}

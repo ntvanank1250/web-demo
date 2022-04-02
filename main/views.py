@@ -62,3 +62,25 @@ def music(request):
             return render(request, 'main/login.html')
     except:
         return render(request, 'main/home.html')
+
+def game(request):
+    try:
+        if 'user' in request.session:
+            current_user = request.session['user']
+            param = {'current_user': current_user}
+            return render(request, 'main/game.html', param)
+        else:
+            return render(request, 'main/login.html')
+    except:
+        return render(request, 'main/home.html')
+
+def gamesnake(request):
+    try:
+        if 'user' in request.session:
+            current_user = request.session['user']
+            param = {'current_user': current_user}
+            return render(request, 'main/gamesnake.html', param)
+        else:
+            return render(request, 'main/login.html')
+    except:
+        return render(request, 'main/game.html')

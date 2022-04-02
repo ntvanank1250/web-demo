@@ -7,7 +7,7 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
-    <h1>My Website</h1>
+    
      <a href="{% url 'main:home' %}">Home</a>
     <span>/</span>
 
@@ -17,7 +17,10 @@
         <a href="{% url 'main:logout' %}">Logout</a>
         <hr>
         <h2>Welcome <span style="color: dodgerblue;"> {{ current_user }}</span></h2>
-        
+        <div style="display:inline">
+            <a href="{% url 'main:music' %}">Music</a>
+            <a href="{% url 'main:game' %}">Game</a>
+         </div>
     {% else %}
         <a href="{% url 'main:login' %}">Login</a>
         <span>/</span>
@@ -27,6 +30,6 @@
         </h2>
     {% endif %}
 
-{% block body %} {% endblock %}
+<div>{% block body %} {% endblock %}</div>
 </body>
 </html>

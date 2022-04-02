@@ -1,14 +1,13 @@
 {% extends 'main/base.html' %}
-{% block title %} Home {% endblock %}
+{% block title %} snake {% endblock %}
 
 {% block body %}
-    <h2>Blog cá nhân</h2>
+    <h2>Game</h2>
      {% if error_message %}
           <div class="alert alert-primary" role="alert">
             {{error_message}}
           </div>
     {% endif %}
-    <h1> "Ba phần bất lực, bảy phần nuông chiều cô"  </h1>
-    
-    </form>
+    <div><a href="{% url 'main:gamesnake' %}"><h1>Rắn săn mồi</h1></a> </div>
+   
 {% endblock %}
