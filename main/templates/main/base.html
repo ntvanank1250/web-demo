@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    <h1>My Website</h1>
+     <a href="{% url 'main:home' %}">Home</a>
+    <span>/</span>
+
+    {% if current_user %}
+        <a href="{% url 'main:superadmin' %}">Manage account</a>
+        <span>/</span>
+        <a href="{% url 'main:logout' %}">Logout</a>
+        <hr>
+        <h2>Welcome <span style="color: dodgerblue;"> {{ current_user }}</span></h2>
+        
+    {% else %}
+        <a href="{% url 'main:login' %}">Login</a>
+        <span>/</span>
+        <a href="{% url 'main:signup' %}">Sign Up</a>
+        <hr>
+        <h2>Welcome 
+        </h2>
+    {% endif %}
+
+{% block body %} {% endblock %}
+</body>
+</html>

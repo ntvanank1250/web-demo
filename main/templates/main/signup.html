@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block body %}
+    <h2>Sign up</h2>
+    {% if error_message %}
+          <div class="alert alert-primary" role="alert">
+            {{error_message}}
+          </div>
+    {% endif %}
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="uname" placeholder="User name">
+        <br><br>
+        <input type="text" name="pwd" placeholder="Password">
+         <br><br>
+        <input type="submit" name="submit" value="Sign Up" >
+
+    </form>
+
+{% endblock %}
