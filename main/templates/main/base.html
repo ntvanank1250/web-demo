@@ -1,35 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+        }
+        a {
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        li {
+            display: inline
+        }
+
+        li a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        li a {
+            box-sizing: border-box;
+            height: 30px;
+            float: left;
+            display: block;
+            color: black;
+            text-align: center;
+            padding: 5px 5px;
+            text-decoration: none;
+        }
+
+        /* header */
+      
+        
+        div.relative_header {
+            background-color: #1da1f2;
+            width: 100%;
+            height: 50px;
+            position: relative;
+        }
+
+        div.absolute_header1 {
+            top: 0%;
+            left: 0%;
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            font-size: 30px;
+            text-align: left;
+        }
+
+        div.absolute_header3 {
+            top: 0%;
+            right: 0%;
+            width: 30%;
+            height: 100%;
+            position: absolute;
+            text-align: right;
+            font-size: 20px;
+        }
+
+        /* under header */
+        div.relative_underheader {
+            border-width: 1px;
+            border-style: outset;
+            font-size: 15px;
+            width: 100%;
+            height: 30px;
+        }
+
+        div.absolute_underheader1 {
+
+            left: 10px;
+            width: 30%;
+            height: 10%;
+            position: absolute;
+            text-align: left;
+        }
+
+        div.absolute_underheader3 {
+
+            right: 10px;
+            width: 20%;
+            height: 10%;
+            position: absolute;
+            text-align: right;
+        }
+        .body{
+            height: 400px
+        }
+        /* footer */
+        .footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+            }
+                    
+    </style>
+
 </head>
+
 <body>
-    
-     <a href="{% url 'main:home' %}">Home</a>
-    <span>/</span>
+    <header>
+        <div class="relative_header">
+            <div class="absolute_header1">
+                <a href="{% url 'main:home' %}"><span class="header">MyWebsite</span></a>
+            </div>
+            <div class="absolute_header3">
+                <span>Welcome</span><span style="color: 	#FF6600;"> {{ current_user }}</span>
+            </div>
+        </div>
+    </header>
+    <div class="relative_underheader">
+        <div class="absolute_underheader1">
+            <ul>
+                <li><a href="{% url 'main:home' %}" id="home">Home</a></li>
+                {% if mode_user %}
+                <li><a href="{% url 'main:superadmin' %}">Manage account</a></li>
+                {% else %}
+                {% endif %}
+                {% if current_user %}
+                <li><a href="{% url 'main:logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'main:login' %}">Login</a><span>/</span></li>
+                <li><a href="{% url 'main:signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </div>
 
-    {% if current_user %}
-        <a href="{% url 'main:superadmin' %}">Manage account</a>
-        <span>/</span>
-        <a href="{% url 'main:logout' %}">Logout</a>
-        <hr>
-        <h2>Welcome <span style="color: dodgerblue;"> {{ current_user }}</span></h2>
-        <div style="display:inline">
-            <a href="{% url 'main:music' %}">Music</a>
-            <a href="{% url 'main:game' %}">Game</a>
-         </div>
-    {% else %}
-        <a href="{% url 'main:login' %}">Login</a>
-        <span>/</span>
-        <a href="{% url 'main:signup' %}">Sign Up</a>
-        <hr>
-        <h2>Welcome 
-        </h2>
-    {% endif %}
+        <div class="absolute_underheader3">
+            <ul>
+                {% if current_user %}
+                <li><a href="{% url 'main:music' %}">Music</a></li>
+                <li><a href="{% url 'main:game' %}">Game</a></li>
+                {% else %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div>
+        {% block body %} {% endblock %}
+    </div>  
+   
 
-<div>{% block body %} {% endblock %}</div>
 </body>
+
 </html>

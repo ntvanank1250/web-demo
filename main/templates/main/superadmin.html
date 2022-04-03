@@ -1,10 +1,10 @@
 {% extends 'main/base.html' %}
-{% block title %} Xin chào Hiệu {% endblock %}
+{% block title %} Xin chào {{current_user}} {% endblock %}
 
 {% block body %}
-    <script> alert ('xin chào Hiệu') </script>
-    <h2>Quản lý account </h2>
-     {% if error_message %}
+    <h3>Quản lý tài khoản <span>{{current_user}}</span></h3>
+    
+    {% if error_message %}
           <div class="alert alert-primary" role="alert">
             {{error_message}}
           </div>

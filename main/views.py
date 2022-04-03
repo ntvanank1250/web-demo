@@ -7,14 +7,26 @@ def home(request):
     if 'user' in request.session:
         current_user = request.session['user']
         param = {'current_user': current_user}
+        if current_user=='admin':
+            mode_user="admin"
+            param = {'current_user': current_user,
+                "mode_user":mode_user}
+        else:
+            param = {'current_user': current_user}
         print(current_user)
         return render(request, 'main/home.html', param)
     else:
        return render(request, 'main/login.html')
 def superadmin(request):
-    if request.session['user'] =='admin':
-        return render(request, 'main/superadmin.html')
-    else:
+    try:
+        if 'user' in request.session:
+            current_user = request.session['user']
+           
+            param = {'current_user': current_user}
+            return render(request, 'main/superadmin.html', param)
+        else:
+            return render(request, 'main/login.html')
+    except:
         return render(request, 'main/home.html')
 
 def signup(request):
