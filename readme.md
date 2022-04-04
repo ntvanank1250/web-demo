@@ -1,1 +1,1 @@
-pip install django"# web-demo.githup.io" 
+pip install django
