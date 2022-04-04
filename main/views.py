@@ -7,8 +7,8 @@ def home(request):
     if 'user' in request.session:
         current_user = request.session['user']
         param = {'current_user': current_user}
-        if current_user=='admin':
-            mode_user="admin"
+        if current_user=='admin11':
+            mode_user="admin11"
             param = {'current_user': current_user,
                 "mode_user":mode_user}
         else:
@@ -51,7 +51,7 @@ def login(request):
         if check_user:
             request.session['user'] = uname
             param = {'current_user': uname}
-            return render(request, 'main/home.html',param)
+            return redirect('main:home')
         else:
             return render(request, 'main/login.html', {'error_message':'Please enter valid Username or Password'})
 
@@ -61,8 +61,8 @@ def logout(request):
     try:
         del request.session['user']
     except:
-        return render(request, 'main/login.html')
-    return render(request, 'main/login.html')
+        return redirect('main:login')
+    return redirect('main:login')
 
 def music(request):
     try:
@@ -96,3 +96,14 @@ def gamesnake(request):
             return render(request, 'main/login.html')
     except:
         return render(request, 'main/game.html')
+
+def chatbox(request):
+    try:
+        if 'user' in request.session:
+            current_user = request.session['user']
+            param = {'current_user': current_user}
+            return render(request, 'main/movies.html', param)
+        else:
+            return render(request, 'main/login.html')
+    except:
+        return render(request, 'main/home.html')

@@ -6,13 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../base.css">
     <style>
-        html, body{
+        body {
+            margin: 0;
             width: 100%;
             height: 100%;
         }
+
         a {
             color: black;
+        }
+
+        a#home {
+            background-color: #ADD8E6;
+            width: 40px;
         }
 
         ul {
@@ -42,13 +51,15 @@
         }
 
         /* header */
-      
-        
+
+
         div.relative_header {
             background-color: #1da1f2;
             width: 100%;
             height: 50px;
             position: relative;
+            margin: 0;
+            border: 0;
         }
 
         div.absolute_header1 {
@@ -72,41 +83,105 @@
         }
 
         /* under header */
-        div.relative_underheader {
-            border-width: 1px;
-            border-style: outset;
+        div.navbar {
+            background-color: #ADD8E6;
+            margin: 0;
+            padding: 0;
             font-size: 15px;
             width: 100%;
             height: 30px;
+            display: block;
+            transition: top 0.3s;
+            display: flex;
+            justify-content: space-between;
         }
 
-        div.absolute_underheader1 {
+        div.nav_left {
+            display: flex;
+            align-items: left;
+        }
 
-            left: 10px;
-            width: 30%;
-            height: 10%;
+        div.nav_right {
+
+            display: flex;
+            align-items: right;
+        }
+
+        .dropbtn {
+            background-color: #ADD8E6;
+            color: black;
+            height: 30px;
+            width: 100px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            box-sizing:border-box;
+            
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+           
+        }
+
+        .dropdown-content {
+            display: none;
             position: absolute;
-            text-align: left;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
         }
 
-        div.absolute_underheader3 {
-
-            right: 10px;
-            width: 20%;
-            height: 10%;
-            position: absolute;
-            text-align: right;
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
         }
-        .body{
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: white;
+        }
+        /* music */
+        div.music{
+            background-color: #DCDCDC;
+            padding: 30px 0px 0px 0px ;
+            display: flex;
+            text-align: center;
+        }
+        div.music_text{
+            display: flex;
+            justify-content: center;
+            height:157px;
+            
+        }
+        div.music_text :hover{
+            background-color: #D3D3D3;
+        }
+        div.music_content{
+            margin: 0px 10px;
+            display: inline-block
+        }
+        .body {
             height: 400px
         }
+
         /* footer */
         .footer {
             background-color: #f1f1f1;
             padding: 10px;
             text-align: center;
-            }
-                    
+        }
     </style>
 
 </head>
@@ -122,37 +197,69 @@
             </div>
         </div>
     </header>
-    <div class="relative_underheader">
-        <div class="absolute_underheader1">
+    <div class="navbar">
+        <div class="nav_left">
             <ul>
-                <li><a href="{% url 'main:home' %}" id="home">Home</a></li>
-                {% if mode_user %}
+                <li><a href="{% url 'main:home' %}" id="home"><i class="fa fa-home"></i></a></li>
+            </ul>
+            {% if current_user %}
+            <div class="dropdown" >
+
+                <button class="dropbtn">Giải trí</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'main:music' %}">Music</a>
+                    <a href="{% url 'main:game' %}">Game</a>
+                </div>
+            </div>
+            <div class="dropdown" >
+
+                <button class="dropbtn">Báo Online</button>
+                <div class="dropdown-content">
+                    <a href="https://nhandan.vn/" target="_blank">Nhân Dân</a>
+                    <a href="https://laodong.vn/" target="_blank">Lao Động</a>
+                </div>
+            </div>
+            <div class="dropdown" >
+
+                <button class="dropbtn">Tin Tức</button>
+                <div class="dropdown-content">
+                    <a href="https://www.youtube.com/playlist?list=PLWOWPtHR1gWmGYyc0wE5-qBgkLB3rKikn" target="_blank">Nga & Ucraina</a>
+                    <a href="https://www.youtube.com/playlist?list=PLWOWPtHR1gWnDzV96R1NSGpRtUIXENZjx" target="_blank">Trong Nước</a>
+                </div>
+            </div>
+            <div class="dropdown" >
+
+                <button class="dropbtn">Diễn đàn</button>
+                <div class="dropdown-content">
+                    <a href="{% url 'main:music' %}">Việt Nam</a>
+                    
+                </div>
+            </div>
+            {% else %}
+            {% endif %}
+        </div>
+        <div class="nav_right">
+
+
+            {% if mode_user %}
+
+            <ul>
                 <li><a href="{% url 'main:superadmin' %}">Manage account</a></li>
                 {% else %}
                 {% endif %}
                 {% if current_user %}
                 <li><a href="{% url 'main:logout' %}">Logout</a></li>
                 {% else %}
-                <li><a href="{% url 'main:login' %}">Login</a><span>/</span></li>
+                <li><a href="{% url 'main:login' %}">Login</a></li>
                 <li><a href="{% url 'main:signup' %}">Sign Up</a></li>
-                {% endif %}
-            </ul>
-        </div>
-
-        <div class="absolute_underheader3">
-            <ul>
-                {% if current_user %}
-                <li><a href="{% url 'main:music' %}">Music</a></li>
-                <li><a href="{% url 'main:game' %}">Game</a></li>
-                {% else %}
                 {% endif %}
             </ul>
         </div>
     </div>
     <div>
         {% block body %} {% endblock %}
-    </div>  
-   
+    </div>
+
 
 </body>
 

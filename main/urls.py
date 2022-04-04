@@ -11,5 +11,6 @@ urlpatterns = [
     path('music/',views.music, name='music'),
     path('game', views.game, name='game'),
     path('gamesnake', views.gamesnake, name='gamesnake'),
+    path('chatbox/', views.chatbox, name='chatbox')
 
 ]
