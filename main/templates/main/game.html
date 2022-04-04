@@ -2,12 +2,272 @@
 {% block title %} snake {% endblock %}
 
 {% block body %}
+<style>
+  #score {
+    width: 200px;
+    height: 100px;
+    margin-bottom: 25px;
+  }
+
+  canvas {
+    margin: 10px;
+    background-color: #999999;
+    border: 1px solid black;
+  }
+
+  div.game_page {
+    height: 600px;
+    width: 1349px;
+    display: block;
+  }
+
+  div.game_title {
+    text-align: center;
+  }
+
+  div.game_game {
+    height: 600px;
+    width: 1349px;
+    display: flex;
+  }
+
+  div.name_game {
+    margin: 0;
+    height: 10%;
+    width: 100%;
+  }
+  div.name_game1 {
+    margin: 0;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+  }
+    div.none_key{
+        width: 30%;
+        height: 100%;
+    }
+    div.key{
+        width: 30%;
+        height: 100%;
+        background-color:bisque;
+        text-align: center;
+    }
+    div{border: 1;
+        border-color: black;
+    }
+
+
+</style>
+<div class="game_page">
+  <div class="game_title">
     <h2>Game</h2>
-     {% if error_message %}
-          <div class="alert alert-primary" role="alert">
-            {{error_message}}
+  </div>
+  <div class="name_game1">
+    <div class="name_game"><h2 style="width: 402px;">Game Rắn Săn Mồi</h2></div>
+    <div class="name_game"><h2>Game Xếp Hình</h2></div>
+  </div>
+    <div >
+      <table>
+        <tr>
+          <th><canvas width="400" height="400" id="game"></canvas></th>
+          <th style="margin-top: 10px;text-align: center;">
+            <div style=" width: 100px; height: 100px; margin: 0 auto;">
+              <div style="display: flex;">
+                  <div class="none_key">
+                  </div>
+                  <div class="key" id="w">
+                      <span>W</span>
+                  </div>
+                  <div class="none_key" >
+                  </div>
+              </div>
+              <div style="display: flex;">
+                  <div class="key" id="a"><span>A</span>
+                  </div>
+                  <div class="key" id="s"><span>S</span>
+                  </div>
+                  <div class="key" id="d"><span>D</span>
+                  </div>
+              </div>
           </div>
-    {% endif %}
-    <div><a href="{% url 'main:gamesnake' %}">Rắn săn mồi</a> </div>
-   
+            <h2 id="score"></h2>
+            <button  onclick="start()" style="width: 100px; height: 50px; background-color: #999999;">Play</button>
+            <br>
+            <br>
+            <button id="play_again"  onclick="play_again()" style="margin: auto; display: none;width: 100px; height: 50px; background-color: #999999;">Play again</button>
+          </th>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+<!-- tao box-game -->
+
+<script>
+  var key
+  var canvas = document.getElementById('game');
+  var context = canvas.getContext('2d');
+    // gán box-game thành biến
+  
+  var dxdy = randomTrend()
+  //giá trị 1 ô la 16px
+  var grid = 16; // 25*25 ô
+  // khởi tạo đối tượng rắn là 1 ô vuông
+  var snake = {
+    //vị trí của đầu rắn (ở giữa map)
+    x: 160,
+    y: 160,
+    //hướng di chuyển
+    dx: dxdy[0] * grid,
+    dy: dxdy[1] * grid,
+    cells: [],
+    maxCells: 4
+  };
+
+  var count = 0;
+  var apple = {
+    x: getRandomInt(1, 24) * grid,
+    y: getRandomInt(1, 24) * grid,
+  };
+  let score = 0
+  // hàm chạy game
+  let game_mode=1
+  function start(){
+    if (game_mode==1){
+      loop();
+      game_mode=0
+      document.getElementById("play_again").style.display="block"
+    }
+    
+    
+  }
+  function play_again(){
+    location.reload()
+  }
+  
+
+  // tao ham ramdom tu min den max(bao gom ca 2)
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+  //random huong di chuyen
+  function randomTrend() {
+    let x = getRandomInt(-1, 1);
+    let y = 0
+    if (x == 0) {
+      fy = getRandomInt(0, 1)
+      if (fy == 1) { y = 1; }
+      else { y = -1; }
+    }
+    else {
+      y = 0;
+    }
+    return [x, y];// tra ve 2 value
+  }
+  
+  // game loop
+  function loop() {
+    //hàm này giống như setTimeout, sẽ gọi lại hàm loop khi loop thực thi xong
+    requestAnimationFrame(loop);
+    // game loop 10fps (load lại 6 lần mới chạy 1 lần)
+    if (++count < 6) {
+      return;
+    }
+    count = 0;
+
+
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    snake.x += snake.dx; // mỗi loop rắn sẽ di chuyển thêm 1 đơn vị
+    snake.y += snake.dy;
+
+    // khi snake đụng tường sẽ chạy lại từ canh đối diện
+    if (snake.x < 0) {
+      snake.x = canvas.width - grid;
+    }
+    else if (snake.x >= canvas.width) {
+      snake.x = 0;
+    }
+    if (snake.y < 0) {
+      snake.y = canvas.height - grid;
+    }
+    else if (snake.y >= canvas.height) {
+      snake.y = 0;
+    }
+    // Phương thức unshift sẽ thêm một hoặc nhiều phần tử vào đầu mảng
+    snake.cells.unshift({ x: snake.x, y: snake.y });
+    // thêm 1 ô vuông phía trc thì phải remove 1 cái phía sau để snake move dc.
+    if (snake.cells.length > snake.maxCells) {
+      snake.cells.pop();
+    }
+    // draw apple
+    context.fillStyle = 'red';
+    context.fillRect(apple.x, apple.y, grid - 1, grid - 1);
+    // draw snake
+    context.fillStyle = 'green';
+    snake.cells.forEach(function (cell, index) {
+      context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+      // snake eat apple
+      if (cell.x === apple.x && cell.y === apple.y) {
+        snake.maxCells++;
+        apple.x = getRandomInt(1, 24) * grid;
+        apple.y = getRandomInt(1, 24) * grid;
+        score++;
+      }
+      // check va chạm khi rắn đụng đuôi
+      for (var i = index + 1; i < snake.cells.length; i++) {
+        // va chạm thì reset game
+        if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+          alert("Your score: " + score);
+          location.reload();
+          break;
+        }
+      }
+    });
+    document.getElementById("score").innerHTML = "Your score: " + score
+  }
+
+  //bắt sự kiện bàn phím ấn xuống
+  document.addEventListener('keydown', function (e) {
+    // lọc sự kiện keydown để rắn không di ngược lại
+    console.log(e.which)
+    if (e.which === 65 && snake.dx === 0) {//65
+      key=document.getElementById('a')
+      key.style.backgroundColor="red"
+      resetColor()
+      snake.dx = -grid;
+      snake.dy = 0;
+    }
+    else if (e.which === 87 && snake.dy === 0) {//87
+      key=document.getElementById('w')
+      key.style.backgroundColor="red"
+      resetColor()
+      snake.dy = -grid;
+      snake.dx = 0;
+    }
+    else if (e.which === 68 && snake.dx === 0) {//68
+      key=document.getElementById('d')
+      key.style.backgroundColor="red"
+      resetColor()
+      snake.dx = grid;
+      snake.dy = 0;
+    }
+    else if (e.which === 83 && snake.dy === 0) {//83
+      key=document.getElementById('s')
+      key.style.backgroundColor="red"
+      resetColor()
+      snake.dy = grid;
+      snake.dx = 0;
+    }
+  });
+  function resetColor(){
+    setInterval(x, 500)
+  }
+  function x(){key.style.backgroundColor="bisque"}
+  //requestAnimationFrame(loop);
+</script>
+
+
 {% endblock %}
