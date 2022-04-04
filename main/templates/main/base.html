@@ -90,7 +90,6 @@
             font-size: 15px;
             width: 100%;
             height: 30px;
-            display: block;
             transition: top 0.3s;
             display: flex;
             justify-content: space-between;
@@ -175,7 +174,13 @@
         .body {
             height: 400px
         }
-
+        div.body{
+            background-image: url('https://tuyendung.vti.com.vn/home/images/statistic/_Linked%20File_.png');
+            background-size: cover;
+            height: 600px;
+            width: 1349px;
+            display: flex;
+        }
         /* footer */
         .footer {
             background-color: #f1f1f1;
@@ -256,7 +261,7 @@
             </ul>
         </div>
     </div>
-    <div>
+    <div class="body">
         {% block body %} {% endblock %}
     </div>
 

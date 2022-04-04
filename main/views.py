@@ -16,7 +16,7 @@ def home(request):
         print(current_user)
         return render(request, 'main/home.html', param)
     else:
-       return render(request, 'main/login.html')
+       return redirect('main:login')
 def superadmin(request):
     try:
         if 'user' in request.session:
@@ -33,9 +33,15 @@ def signup(request):
     if request.method == "POST":
         uname = request.POST.get('uname')
         pwd = request.POST.get('pwd')
+        repwd=request.POST.get('repwd')
 
         if User.objects.filter(username=uname).count()>0:
            return render(request, 'main/signup.html', {'error_message': 'Username already exists'})
+        if pwd!=repwd:
+            return render(request, 'main/signup.html', {'error_message1': 'password and repassword not same'})
+        if uname=='':
+            return render(request, 'main/signup.html', {'error_message2': 'User is must enter a username'})
+
         else:
             user = User(username=uname, password = pwd )
             user.save()

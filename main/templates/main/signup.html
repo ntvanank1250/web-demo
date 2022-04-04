@@ -1,21 +1,76 @@
 {% extends 'main/base.html' %}
-{% block title %} Login {% endblock %}
+{% block title %} Signup {% endblock %}
 
 {% block body %}
-    <h2>Sign up</h2>
+<style>
+  div.signup_body {
+    width: 33%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+
+  div.signup_left {
+    width: 33%;
+    height: 100%;
+
+
+  }
+
+  div.signup_right {
+    width: 33%;
+    height: 100%;
+
+  }
+
+  h1.signup_text {
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    opacity: 1;
+  }
+
+  form.signup_box {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+    opacity: 1;
+
+  }
+
+  .button:hover {
+    background-color: crimson;
+    color: white;
+  }
+
+  span.alert {
+    color: red;
+  }
+</style>
+<div class="signup_left"></div>
+<div class="signup_body">
+  <h1 class="signup_text">Signup</h1>
+  <form method="POST" class="signup_box" name="signup_box">
     {% if error_message %}
-          <div class="alert alert-primary" role="alert">
-            {{error_message}}
-          </div>
+    <span class="alert">{{error_message}}</span>
+    <br>
     {% endif %}
-    <form method="POST">
-        {% csrf_token %}
-        <input type="text" name="uname" placeholder="User name">
-        <br><br>
-        <input type="password" name="pwd" placeholder="Password">
-         <br><br>
-        <input type="submit" name="submit" value="Sign Up" >
-
-    </form>
-
+    {% csrf_token %}
+    {% if error_message2 %}
+    <span class="alert">{{error_message2}}</span>
+    <br>
+    {% endif %}
+    <input type="text" name="uname" placeholder="User name">
+    <br><br>
+    <input type="password" name="pwd" placeholder="Password">
+    <br><br>
+    {% if error_message1 %}
+    <span class="alert">{{error_message1}}</span>
+    <br>
+    {% endif %}
+    <input name="repwd" type="password" placeholder="Repeat password">
+    <br><br>
+    <input onsubmit="check()" class="submit" type="submit" name="submit" value="Signup">
+  </form>
+</div>
+<div class="signup_right"></div>
 {% endblock %}
