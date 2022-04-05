@@ -24,7 +24,7 @@
   .slideshow-container {
     max-width: 1000px;
     position: relative;
-    margin: auto;
+    margin: 1% auto;
   }
 
   /* Caption text */
@@ -36,15 +36,6 @@
     bottom: 8px;
     width: 100%;
     text-align: center;
-  }
-
-  /* Number text (1/3 etc) */
-  .numbertext {
-    color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
-    position: absolute;
-    top: 0;
   }
 
   /* The dots/bullets/indicators */
@@ -84,6 +75,7 @@
       font-size: 11px
     }
   }
+
   .prev,
   .next {
     cursor: pointer;
@@ -116,88 +108,104 @@
   div.home_page {
     height: 100%;
     width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+  }
+
+  div.home_page1 {
+    height: 80%;
+    width: 100%;
     display: block;
+    /* flex-direction: column; */
+
   }
 
   div.header_home {
+    height: 10%;
+    width: 100%;
     text-align: center;
+
   }
+
 </style>
 
 
 <div class="home_page">
-  <div class="header_home">
-    <h2>Duy Hiệu</h2>
-  </div>
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <img src="https://i.imgur.com/HnQmrSN.png" style="width:100%">
-      <div class="text">Information</div>
+  <div class="home_page1">
+    <div class="header_home">
+      <h2>Duy Hiệu</h2>
     </div>
+    <div class="slideshow-container">
 
-    <div class="mySlides fade">
-      <img src="https://i.imgur.com/DKZDlhS.png" style="width:100%">
-      <div class="text">About Me</div>
+      <div class="mySlides fade">
+        <img src="https://i.imgur.com/HnQmrSN.png" style="width:100%">
+        <div class="text">Information</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="https://i.imgur.com/DKZDlhS.png" style="width:100%">
+        <div class="text">About Me</div>
+      </div>
+
+      <div class="mySlides fade">
+        <img src="https://i.imgur.com/ZW2Affs.png" style="width:100%">
+        <div class="text">My Website</div>
+      </div>
+      <a class="prev" onclick="prev_slide()">&#10094;</a>
+      <a class="next" onclick="next_slide()">&#10095;</a>
+      <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </div>
-
-    <div class="mySlides fade">
-      <img src="https://i.imgur.com/ZW2Affs.png" style="width:100%">
-      <div class="text">My Website</div>
-    </div>
-    <a class="prev" onclick="prev_slide()">&#10094;</a>
-    <a class="next" onclick="next_slide()">&#10095;</a>
   </div>
-  <br>
 
-  <div style="text-align:center">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
+
+ 
 </div>
 
-<script>
-  let slideIndex = 0;
-  // set time chuyển slide=8s
-  let timeout = setInterval(showSlides, 5000);
-  function prev_slide() {
-    slideIndex = slideIndex - 2
-    if (slideIndex < 0) { slideIndex = 2 } // goi ham showslide() se thanh slide 3
-    // reset timeout
-    showSlides()
-    clearInterval(timeout);
-    timeout = setInterval(showSlides, 5000);
-  }
-  function next_slide() {
-    slideIndex = slideIndex
-    // reset timeout
-    showSlides()
-    clearInterval(timeout);
-    timeout = setInterval(showSlides, 5000);
-  }
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    // hidden all slide
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+  <script>
+    let slideIndex = 0;
+    // set time chuyển slide=8s
+    let timeout = setInterval(showSlides, 5000);
+    function prev_slide() {
+      slideIndex = slideIndex - 2
+      if (slideIndex < 0) { slideIndex = 2 } // goi ham showslide() se thanh slide 3
+      // reset timeout
+      showSlides()
+      clearInterval(timeout);
+      timeout = setInterval(showSlides, 5000);
     }
-    // làm mờ hết tất cả các chấm
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
+    function next_slide() {
+      slideIndex = slideIndex
+      // reset timeout
+      showSlides()
+      clearInterval(timeout);
+      timeout = setInterval(showSlides, 5000);
     }
-    // xac dinh vi tri slide
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1 }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-  }
-  showSlides()
-</script>
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      // hidden all slide
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      // làm mờ hết tất cả các chấm
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      // xac dinh vi tri slide
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+    showSlides()
+  </script>
 
 
 
 
-{% endblock %}
+  {% endblock %}

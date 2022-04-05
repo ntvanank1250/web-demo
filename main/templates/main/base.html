@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../base.css">
     <style>
         @media(max-width :500px){
 
@@ -187,8 +186,8 @@
         }
         div.body {
             background-image: url('https://tuyendung.vti.com.vn/home/images/statistic/_Linked%20File_.png');
-            background-size: contain;
-            /* background-repeat: no-repeat; */
+            background-size: cover;
+            
             height: 1000px;
             width: 100%;
             display: flex;
@@ -234,6 +233,7 @@
             height: 100%;
             width: 100%;
         }
+        
     </style>
 
 </head>
@@ -313,7 +313,7 @@
     
     <div class="body">
         {% block body %} {% endblock %}
-        <div>
+        
             
         </div>
     </div>
