@@ -1,0 +1,98 @@
+@media screen and (max-width: 1300px) {
+    div.box_game {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .game1 {
+      display: block;
+      
+    }
+  }
+
+  #score {
+    width: 200px;
+    height: 100px;
+    margin-bottom: 25px;
+  }
+
+  canvas {
+    margin: 10px;
+    background-color: #999999;
+    border: 1px solid black;
+  }
+
+  div.game_page {
+    height: 100%;
+    width: 100%;
+    display: block;
+  }
+
+  div.game_title {
+    text-align: center;
+  }
+
+  div.game_game {
+    height: 20%;
+    width: 100%;
+    display: flex;
+  }
+
+  div.name_game1 {
+
+    height: 100%;
+    width: 50%;
+
+  }
+
+  div.name_game2 {
+    height: 100%;
+    width: 50%;
+  }
+
+  div.box_game {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    text-align: center;
+  }
+
+  div.box_game1 {
+
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  div.game1 {
+    padding-left: auto;
+    padding-right: auto;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  div.box_game2 {
+    height: 100%;
+    width: 50%;
+  }
+
+  div.none_key {
+    width: 30%;
+    height: 100%;
+  }
+
+  div.key {
+    width: 30%;
+    height: 100%;
+    background-color: bisque;
+    text-align: center;
+  }
+
+  div {
+    border: 1;
+    border-color: black;
+  }

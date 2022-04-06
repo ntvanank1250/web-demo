@@ -2,105 +2,60 @@
 {% block title %} snake {% endblock %}
 
 {% block body %}
-<style>
-  #score {
-    width: 200px;
-    height: 100px;
-    margin-bottom: 25px;
-  }
-
-  canvas {
-    margin: 10px;
-    background-color: #999999;
-    border: 1px solid black;
-  }
-
-  div.game_page {
-    height: 600px;
-    width: 1349px;
-    display: block;
-  }
-
-  div.game_title {
-    text-align: center;
-  }
-
-  div.game_game {
-    height: 600px;
-    width: 1349px;
-    display: flex;
-  }
-
-  div.name_game {
-    margin: 0;
-    height: 10%;
-    width: 100%;
-  }
-  div.name_game1 {
-    margin: 0;
-    height: 10%;
-    width: 100%;
-    display: flex;
-    text-align: center;
-  }
-    div.none_key{
-        width: 30%;
-        height: 100%;
-    }
-    div.key{
-        width: 30%;
-        height: 100%;
-        background-color:bisque;
-        text-align: center;
-    }
-    div{border: 1;
-        border-color: black;
-    }
-
-
-</style>
+{% load static %}
+<link rel="stylesheet" href="{% static  'css/game.css' %}" type="text/css">
 <div class="game_page">
   <div class="game_title">
     <h2>Game</h2>
   </div>
-  <div class="name_game1">
-    <div class="name_game"><h2 style="width: 402px;">Game Rắn Săn Mồi</h2></div>
-    <div class="name_game"><h2>Game Xếp Hình</h2></div>
-  </div>
-    <div >
-      <table>
-        <tr>
-          <th><canvas width="400" height="400" id="game"></canvas></th>
-          <th style="margin-top: 10px;text-align: center;">
-            <div style=" width: 100px; height: 100px; margin: 0 auto;">
-              <div style="display: flex;">
-                  <div class="none_key">
-                  </div>
-                  <div class="key" id="w">
-                      <span>W</span>
-                  </div>
-                  <div class="none_key" >
-                  </div>
+  <div class="box_game">
+    <div class="box_game1">
+      <div class="name_game1">
+        <h2>Game Rắn Săn Mồi</h2>
+      </div>
+      <div class="game1">
+        <div style="height: 100%; width:60%;"><canvas width="400" height="400" id="game"></canvas>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          <div class="nut-bam" style=" width: 100px; height: 100px; margin: 0 auto;">
+            <div style="display: flex;">
+              <div class="none_key">
               </div>
-              <div style="display: flex;">
-                  <div class="key" id="a"><span>A</span>
-                  </div>
-                  <div class="key" id="s"><span>S</span>
-                  </div>
-                  <div class="key" id="d"><span>D</span>
-                  </div>
+              <div class="key" id="w">
+                <span>W</span>
               </div>
+              <div class="none_key">
+              </div>
+            </div>
+            <div style="display: flex;">
+              <div class="key" id="a"><span>A</span>
+              </div>
+              <div class="key" id="s"><span>S</span>
+              </div>
+              <div class="key" id="d"><span>D</span>
+              </div>
+            </div>
           </div>
+          <div>
             <h2 id="score"></h2>
-            <button  onclick="start()" style="width: 100px; height: 50px; background-color: #999999;">Play</button>
+            <button onclick="start()" style="width: 100px; height: 50px; background-color: #999999;">Play</button>
             <br>
             <br>
-            <button id="play_again"  onclick="play_again()" style="margin: auto; display: none;width: 100px; height: 50px; background-color: #999999;">Play again</button>
-          </th>
-        </tr>
-      </table>
+            <button id="play_again" onclick="play_again()"
+              style="margin: auto; display: none;width: 100px; height: 50px; background-color: #999999;">Play
+              again</button>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="box_game2">
+      <div class="name_game2">
+        <h2>Game Xếp Hình</h2>
+      </div>
+    </div>
+
   </div>
+</div>
 
 </div>
 <!-- tao box-game -->
@@ -109,8 +64,8 @@
   var key
   var canvas = document.getElementById('game');
   var context = canvas.getContext('2d');
-    // gán box-game thành biến
-  
+  // gán box-game thành biến
+
   var dxdy = randomTrend()
   //giá trị 1 ô la 16px
   var grid = 16; // 25*25 ô
@@ -133,20 +88,20 @@
   };
   let score = 0
   // hàm chạy game
-  let game_mode=1
-  function start(){
-    if (game_mode==1){
+  let game_mode = 1
+  function start() {
+    if (game_mode == 1) {
       loop();
-      game_mode=0
-      document.getElementById("play_again").style.display="block"
+      game_mode = 0
+      document.getElementById("play_again").style.display = "block"
     }
-    
-    
+
+
   }
-  function play_again(){
+  function play_again() {
     location.reload()
   }
-  
+
 
   // tao ham ramdom tu min den max(bao gom ca 2)
   function getRandomInt(min, max) {
@@ -166,7 +121,7 @@
     }
     return [x, y];// tra ve 2 value
   }
-  
+
   // game loop
   function loop() {
     //hàm này giống như setTimeout, sẽ gọi lại hàm loop khi loop thực thi xong
@@ -234,38 +189,38 @@
     // lọc sự kiện keydown để rắn không di ngược lại
     console.log(e.which)
     if (e.which === 65 && snake.dx === 0) {//65
-      key=document.getElementById('a')
-      key.style.backgroundColor="red"
+      key = document.getElementById('a')
+      key.style.backgroundColor = "red"
       resetColor()
       snake.dx = -grid;
       snake.dy = 0;
     }
     else if (e.which === 87 && snake.dy === 0) {//87
-      key=document.getElementById('w')
-      key.style.backgroundColor="red"
+      key = document.getElementById('w')
+      key.style.backgroundColor = "red"
       resetColor()
       snake.dy = -grid;
       snake.dx = 0;
     }
     else if (e.which === 68 && snake.dx === 0) {//68
-      key=document.getElementById('d')
-      key.style.backgroundColor="red"
+      key = document.getElementById('d')
+      key.style.backgroundColor = "red"
       resetColor()
       snake.dx = grid;
       snake.dy = 0;
     }
     else if (e.which === 83 && snake.dy === 0) {//83
-      key=document.getElementById('s')
-      key.style.backgroundColor="red"
+      key = document.getElementById('s')
+      key.style.backgroundColor = "red"
       resetColor()
       snake.dy = grid;
       snake.dx = 0;
     }
   });
-  function resetColor(){
+  function resetColor() {
     setInterval(x, 500)
   }
-  function x(){key.style.backgroundColor="bisque"}
+  function x() { key.style.backgroundColor = "bisque" }
   //requestAnimationFrame(loop);
 </script>
 
