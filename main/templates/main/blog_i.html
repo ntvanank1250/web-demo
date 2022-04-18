@@ -1,0 +1,121 @@
+{% extends 'main/base.html' %}
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+{% load static %}
+<style>
+     div.body{
+    width: 100%;
+    height: 100%;
+  }
+
+    .blogi_body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .blogi_side {
+        width: 20%;
+    }
+
+    .blogi_mid {
+        width: 60%;
+        flex-direction: column;
+        background-color: white;
+    }
+
+    .blogi_add_comment {
+        text-align: left;
+    }
+
+    .blogi_mid h1 {
+        font-size: 250%;
+    }
+    .blogi_comment{
+        border-radius:5px;
+        background-color: #EEEEEE;
+    }
+    .blogi_comments h1{
+        color: #2e98ff ;
+        font-size: 120%;
+    }
+
+    /*  mobile and tablet */
+    @media only screen and (max-width:1024px) {}
+
+    /* Mobile width <740px */
+    @media only screen and (max-width:740px) {
+        .blogi_side {
+            width: 1%;
+        }
+
+        .blogi_mid {
+            width: 98%;
+        }
+
+        .blogi_add_comment {
+            text-align: center;
+        }
+    }
+
+    /* tablet width >=740px and width< 1024 */
+    @media only screen and (min-width:741px) and (max-width:1024px) {
+        .blogi_side {
+            width: 10%;
+        }
+
+        .blogi_mid {
+            width: 80%;
+        }
+
+        .blogi_add_comment {
+            text-align: center;
+        }
+
+
+    }
+</style>
+
+<div class="blogi_body">
+    <div class="blogi_side"></div>
+    <div class="blogi_mid">
+        <div>
+            <p>{{blog.id}}</p>
+            <h1> {{blog.title}}</h1>
+            <h3><br>{{blog.description}}</h3>
+            <p> <br>{{blog.content}} <br></p>
+        </div>
+
+        
+
+        <div class="blogi_add_comment">
+            <h1><br> Leave a comment:</h1>
+            <form method="POST">
+                {% if error_message %}
+                <span class="alert">{{error_message}}</span>
+                <br>
+                {% endif %}
+                {% csrf_token %}
+                
+                <textarea type="text" rows="10" cols="30" name="comment" placeholder="Leave a comment"></textarea>
+                <br><br>
+                <input class="submit" type="submit" name="submit" value="Comment">
+            </form>
+        </div>
+        <div class="blogi_comments">
+            {% for comment in comments %}
+            <br>
+                <div class="blogi_comment">
+                    <h1>{{comment.author}}</h1>
+                    <p>{{comment.comment}}</p>
+                    
+                </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+    <div class="blogi_side"></div>
+</div>
+{%endblock%}

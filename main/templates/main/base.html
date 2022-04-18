@@ -13,24 +13,270 @@
     <link rel="stylesheet" href="{% static  'css/base.css' %}" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>{% block title %} {% endblock %}</title>
+    <style>
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    color: black;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline
+}
+
+li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+li a {
+    box-sizing: border-box;
+    height: 100%;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 1%;
+    text-decoration: none;
+}
+
+/* header */
+div.header {
+    background-color: #1da1f2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 0;
+    display: flex;
+}
+
+div.header1 {
+    top: 0%;
+    left: 0%;
+    width: 50%;
+    height: 100%;
+    font-size: 250%;
+    text-align: left;
+}
+
+div.header3 {
+    right: 0%;
+    width: 50%;
+    height: 100%;
+    text-align: right;
+    font-size: 150%;
+}
+
+/* under header */
+div.navbar {
+    background-color: #ADD8E6;
+    width: 100%;
+    height: 100%;
+    transition: top 0.3s;
+    display: flex;
+}
+
+div.nav_left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+}
+div.home {
+    text-align: center;
+    background-color: #ADD8E6;
+    width: 5%;
+}
+
+div.nav_right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.nav_right a{text-decoration-line: none;}
+.nav_right div{
+    width: 10%;
+    text-align: right;
+}
+.dropbtn {
+    background-color: #ADD8E6;
+    color: black;
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.dropdown {
+    width: 15%;
+    position: relative;
+    display: inline-block;
+   
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 1% 1.5%;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: white;
+    height: 100%;
+}
+
+div.body {
+    background-image: url('https://tuyendung.vti.com.vn/home/images/statistic/_Linked%20File_.png');
+    background-size: cover;
+    height: 1000px;
+    width: 100%;
+    display: flex;
+}
+
+/* footer */
+footer {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-color: wheat;
+    text-align: left;
+    color: black;
+    display: flex;
+
+}
+
+div.footer1 {
+    padding: 0;
+    width: 33.33%;
+    height: 100%;
+
+
+}
+
+div.footer2 {
+    padding: 0;
+    width: 33.33%;
+    height: 100%
+
+
+}
+
+div.footer3 {
+    padding: 0;
+    width: 33.33%;
+    height: 100%;
+    text-align: right;
+
+
+}
+video{
+    height: 100%;
+    width: 100%;
+}
+    /* Mobile width <740px */
+    @media only screen and (max-width:740px) {
+        div.header1 {
+    width: 60%;
+    font-size: 250%;
+}
+
+div.header3 {
+    width: 40%;
+    font-size: 100%;
+}
+
+div.nav_left {
+    width: 90%;
+}
+div.home {
+    width: 10%;
+}
+
+div.nav_right {
+    width: 10%;
+}
+.dropdown {
+    width: 20%;
+
+}
+.footer1 p{
+    font-size: 50%;
+}
+.footer3 p{
+    font-size: 50%;
+}
+
+        }
+    /* tablet width >=740px and width< 1024 */
+    @media only screen and (min-width:741px) and (max-width:1024px) {
+
+
+        footer {
+        font-size: 25%;
+        }
+div.nav_left {
+    width: 80%;
+}
+div.home {
+    width: 10%;
+}
+
+div.nav_right {
+    width: 20%;
+}
+    }
+    </style>
 </head>
 
 <body>
     <header>
-        <div class="relative_header">
-            <div class="absolute_header1">
+        <div class="header">
+            <div class="header1">
                 <a href="{% url 'main:home' %}"><span class="header">MyWebsite</span></a>
             </div>
-            <div class="absolute_header3">
+            <div class="header3">
                 <span>Welcome</span><span style="color: 	#FF6600;"> {{ current_user }}</span>
             </div>
         </div>
     </header>
     <div class="navbar">
         <div class="nav_left">
-            <ul>
-                <li><a href="{% url 'main:home' %}" id="home"><i class="fa fa-home"></i></a></li>
-            </ul>
+            <div class="home">
+                <a href="{% url 'main:home' %}"><i class="fa fa-home"></i></a>
+            </div>
             {% if current_user %}
             <div class="dropdown">
 
@@ -40,14 +286,7 @@
                     <a href="{% url 'main:game' %}">Game</a>
                 </div>
             </div>
-            <div class="dropdown">
-
-                <button class="dropbtn">Báo Online</button>
-                <div class="dropdown-content">
-                    <a href="https://nhandan.vn/" target="_blank">Nhân Dân</a>
-                    <a href="https://laodong.vn/" target="_blank">Lao Động</a>
-                </div>
-            </div>
+            
             <div class="dropdown">
 
                 <button class="dropbtn">Tin Tức</button>
@@ -62,7 +301,7 @@
 
                 <button class="dropbtn">Diễn đàn</button>
                 <div class="dropdown-content">
-                    <a href="{% url 'main:chatbox' %}">Việt Nam</a>
+                    <a href="{% url 'main:blog' %}">Việt Nam</a>
 
                 </div>
             </div>
@@ -70,21 +309,17 @@
             {% endif %}
         </div>
         <div class="nav_right">
-
-
-            {% if mode_user %}
-
-            <ul>
-                <li><a href="{% url 'main:superadmin' %}">Manage account</a></li>
-                {% else %}
-                {% endif %}
+           
+            
                 {% if current_user %}
-                <li><a href="{% url 'main:logout' %}">Logout</a></li>
+                <div><a href="{% url 'main:logout' %}">Logout</a></div>
+                <div><a href="{% url 'main:changepass' %}">Account </a></div>
                 {% else %}
-                <li><a href="{% url 'main:login' %}">Login</a></li>
+                <li><a href="{% url 'main:login' %}">Login </a></li>
                 <li><a href="{% url 'main:signup' %}">Sign Up</a></li>
+            
                 {% endif %}
-            </ul>
+            
         </div>
     </div>
     
@@ -98,23 +333,12 @@
     <footer>
         <div class="footer1">
             <p>Author: Duy-Hieu</p>
-            <p>Email: doduyhieu12091998@gmail.com</p>
+            <p>Email: hieuduyth98@gmail.com</p>
             <p>SDT: <a href="tell:+84947983316">0947983316</a></p>
         </div>
         <div class="footer2"></div>
         <div class="footer3">
-            <div style="display: flex;justify-content: space-between;">
-                <div style="width: 70%;">
-                    <h3>Contract:</h3>
-                </div>
-                <div style="align-items: right;margin: auto;"><a target="_blank" href="https://www.facebook.com/duyhieu1209/"><svg
-                            xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
-                            class="bi bi-facebook" viewBox="0 0 16 16">
-                            <path style="vertical-align: middle;"
-                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z" />
-                        </svg>
-                    </a></div>
-            </div>
+            
             <p>Copyright <span>&#169;</span> Duy-Hieu All Right Reserved</p>
         </div>
     </footer>

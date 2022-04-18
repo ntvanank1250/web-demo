@@ -78,22 +78,24 @@ div.absolute_header3 {
 /* under header */
 div.navbar {
     background-color: #ADD8E6;
-    
-    font-size: 15px;
+    /* font-size: 15px; */
     width: 100%;
     height: 10%;
     transition: top 0.3s;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 
 div.nav_left {
+    width: 50%;
+    height: 100%;
     display: flex;
     align-items: left;
 }
 
 div.nav_right {
-
+    width: 50%;
+    height: 100%;
     display: flex;
     align-items: right;
 }
@@ -221,3 +223,9 @@ video{
     height: 100%;
     width: 100%;
 }
+    /* Mobile width <740px */
+    @media only screen and (max-width:740px) {
+        }
+    /* tablet width >=740px and width< 1024 */
+    @media only screen and (min-width:741px) and (max-width:1024px) {
+    }

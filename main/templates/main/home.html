@@ -2,84 +2,151 @@
 {% block title %} Home {% endblock %}
 
 {% block body %}
+<style>
+  .home_page {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .header_home {
+    width: 100%;
+    text-align: center;
+  }
+
+  .header_home img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+  }
+
+  .header_home {
+    font-size: 150%;
+  }
+
+  .body_home {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .home_side {
+    width: 10%;
+  }
+
+  .home_content {
+    background-color: aliceblue;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home_content h1 {
+    text-align: center;
+  }
+</style>
 {% load staticfiles %}
 <link rel="stylesheet" href="{% static  'css/home.css' %}" type="text/css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="home_page">
-  <div class="home_page1">
-    <div class="header_home">
-      <h2>Duy Hiệu</h2>
-    </div>
-    <div class="slideshow_container">
-
-      <div class="mySlides fade">
-        <img src="https://i.imgur.com/HnQmrSN.png" style="width:100%">
-        <div class="text">Information</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src="https://i.imgur.com/DKZDlhS.png" style="width:100%">
-        <div class="text">About Me</div>
-      </div>
-
-      <div class="mySlides fade">
-        <img src="https://i.imgur.com/ZW2Affs.png" style="width:100%">
-        <div class="text">My Website</div>
-      </div>
-      <a class="prev" onclick="prev_slide()">&#10094;</a>
-      <a class="next" onclick="next_slide()">&#10095;</a>
-      <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
+  <div class="header_home">
+    <img
+      src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-9/170502150_285682159813495_1331339524602775949_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_ohc=XsO9eIhAd2oAX8of4P6&_nc_ht=scontent.fhan2-2.fna&oh=00_AT-J73rmemjheVXH4ftFZZdz3-CQooLSESYD8VBJ7CoBPg&oe=6283CE61"
+      alt="">
+    <h1>Duy Hiệu</h1>
+    <br>
   </div>
+  <div class="body_home">
+    <div class="home_side"></div>
+    <div class="home_content">
+      <h1>Contact information</h1>
+      <ul>
+        <li><i class="fa fa-calendar"></i>: September 12, 1998</li><br>
+        <li><i class="fa fa-phone"></i>: 0947983316</li><br>
+        <li><i class="fa fa-mail-forward"></i>: hieuduyth98@gmail.com</li><br>
+        <li><i class="fa fa-link"></i>: https://duyhieu12.pythonanywhere.com/</li><br>
+        <li><i class="fa fa-globe"></i>: Hanoi, Vietnam</li><br>
+        <li><i class="fa fa-intersex"></i>: Male</li><br>
+      </ul>
+      <br>
+      <h1>Objective</h1>
+      <h3>Short-term goal:</h3>
+      <ul>
+        <li>+ Improve your level, learn and gain more experience</li> <br>
+        <li>+ Training attitude and working spirit in a thriving IT environment</li>
+      </ul>
+      <h3>Long-term goals:</h3>
+      <ul>
+        <li>+ Become a Full Stack python Web
+          programmer, working in a dynamic and
+          professional environment. Bring value to teams
+          and businesses</li> <br>
+        <li>+ Develop your own products as well as try new
+          positions</li>
+      </ul>
+      <br>
+      <h1>Interests</h1>
+      <li>I like jogging and badminton</li>
+      <br>
+    </div>
 
+    <div class="home_content">
+      <h1>Skills</h1>
+      <h3>Database:</h3>
+      <ul>
+        <li>MySQL, SQL server</li>
+      </ul>
+      <h3>Python:</h3>
+      <ul>
+        <li>+ Python core, OOP, Functional Programming</li><br>
+        <li>+ Web programming with Django</li><br>
+        <li>+ Rest programming with Flask</li>
+      </ul>
+      <h3>Front-end:</h3>
+      <ul>
+        <li>HTML, CSS, JavaScript, Bootstrap</li>
+      </ul>
+      <h3>Project Process:</h3>
+      <ul>
+        <li>Coding, Testing, Deploying, Git</li>
+      </ul>
+      <h3>IDE:</h3>
+      <ul>
+        <li>SQL Workbench, Visual Studio Code</li>
+      </ul><br>
 
- 
+      <h1>Projects</h1>
+      <h3>Self-introduction website | March 2022 - April 2022</h3>
+      <ul>
+        <li>+ Project description: Introduce yourself, some articles about
+          health, entertainment with basic games and music</li> <br>
+        <li> + Number of members: 1</li><br>
+        <li>+ Job position: Full-stack programmer</li><br>
+        <li>+ Roles in the project: Front-End code, Back-End code, Design,
+          Testing, Deploying to pythonanywhere.com</li><br>
+        <li>+ Technology used: Django framework, HTML/CSS/JS</li>
+      </ul><br>
+
+      <h1>Education</h1>
+      <h3>HANOI UNIVERSITY OF PHARMACY | OCT 2016 - MAY 2021</h3>
+      <ul>
+        <li>Specialization: Pharmaceutical economic management</li>
+      </ul><br>
+      <h1>Certifications</h1>
+      <ul>
+        <li>2021: Course: Python 01 (Python full-stack )VTI ACADEMY</li><br>
+        <li>Duration: 6 months</li>
+      </ul><br>
+
+    </div>
+
+    <div class="home_side"></div>
+
+  </div>
 </div>
 
-  <script>
-    let slideIndex = 0;
-// set time chuyển slide=8s
-let timeout = setInterval(showSlides, 5000);
-function prev_slide() {
-  slideIndex = slideIndex - 2
-  if (slideIndex < 0) { slideIndex = 2 } // goi ham showslide() se thanh slide 3
-  // reset timeout
-  showSlides()
-  clearInterval(timeout);
-  timeout = setInterval(showSlides, 5000);
-}
-function next_slide() {
-  slideIndex = slideIndex
-  // reset timeout
-  showSlides()
-  clearInterval(timeout);
-  timeout = setInterval(showSlides, 5000);
-}
-function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  // hidden all slide
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  // làm mờ hết tất cả các chấm
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  // xac dinh vi tri slide
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
-}
-showSlides()
-  </script>
 
 
 
 
-  {% endblock %}
+
+{% endblock %}
