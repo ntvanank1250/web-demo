@@ -42,9 +42,18 @@
   .home_content h1 {
     text-align: center;
   }
+   /* tablet width >=740px and width< 1024 */
+   @media only screen and (max-width:1024px) {
+    .home_side {
+    width: 1%;
+  }
+  .home_content {
+   
+    width: 49%;}
+   }
 </style>
 {% load staticfiles %}
-<link rel="stylesheet" href="{% static  'css/home.css' %}" type="text/css">
+<!-- <link rel="stylesheet" href="{% static  'css/home.css' %}" type="text/css"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="home_page">
