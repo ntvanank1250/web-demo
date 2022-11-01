@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static  'css/login.css' %}" type="text/css">
+  <div class="login_left"></div>
+  <div class="login_body" >
+    <h1 class="login_text">Login</h1>
+
+    {% if error_message %}
+    <div class="alert alert-primary" role="alert">
+      {{error_message}}
+    </div>
+    {% endif %}
+    <form method="POST" class="login_box">
+      {% csrf_token %}
+      <input type="text" name="uname" placeholder="User name">
+      <br><br>
+      <input type="password" name="pwd" placeholder="Password">
+      <br><br>
+      
+      <input type="submit" name="submit" value="Login">
+    </form>
+  </div>
+  <div class="login_right"></div>
+
+{% endblock %}

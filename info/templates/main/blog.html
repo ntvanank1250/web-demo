@@ -1,0 +1,114 @@
+{% extends 'main/base.html' %}
+{% block title %} Blog {% endblock %}
+
+{% block body %}
+{% load static %}
+<style>
+  div.body{
+    width: 100%;
+    height: 100%;
+  }
+    div.blog_body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+
+    .blog_menu {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 100%;
+    }
+
+    div.blog_side {
+        width: 15%;
+    }
+
+
+    div.blog_mid {
+        
+        text-align: left;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .blog_title {
+        font-size: 250%;
+        /* color: #34495e; */
+    }
+    .blog_title a{
+        color: #34495e;
+    }
+    .blog_title p{
+        font-size: 50%;
+        color: black;
+    }
+    .blog_description{
+        font-size: 150%;
+        text-align: justify;
+    }
+    .blog_item{
+        padding: 2% 0%;
+        background-color: white;
+        
+    }
+    /*  mobile and tablet */
+@media only screen  and (max-width:1024px) {
+   
+}
+  /* Mobile width <740px */
+  @media only screen and (max-width:740px) {
+    div.blog_side {
+        width: 1%;
+    }
+
+
+    div.blog_mid {
+        text-align: center;
+        width: 98%;
+    }
+}
+
+/* tablet width >=740px and width< 1024 */
+@media only screen and (min-width:741px) and (max-width:1024px) {
+    div.blog_side {
+        width: 10%;
+    }
+
+
+    div.blog_mid {
+        text-align: center;
+        width: 80%;
+    }
+}
+</style>
+
+
+<div><a href="{% url 'main:add_blog' %}"><h1>Create Blog</h1></a></div>
+<div class="blog_body">
+    <div class="blog_side"></div>
+    <div class="blog_mid">
+
+        {% for blog in blogs %}
+        <br>
+        <div class="blog_item">
+            <div class="blog_title"><a href="{% url 'main:blog_i' blog.id %}">
+                    <h1>{{blog.title}}</h1>
+                </a>
+            </div>
+            <div class="blog_description"><br>{{blog.description}} </div>
+            <div class="blog_description"><br>Author: {{blog.author}} </div>
+            <div class="blog_date"><br>{{blog.date}}</div>
+        </div>
+        {% endfor %}
+
+    </div>
+    <div class="blog_side"></div>
+
+</div>
+
+
+
+{%endblock%}

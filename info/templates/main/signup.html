@@ -1,0 +1,34 @@
+{% extends 'main/base.html' %}
+{% block title %} Signup {% endblock %}
+
+{% block body %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static  'css/signup.css' %}" type="text/css">
+<div class="signup_left"></div>
+<div class="signup_body">
+  <h1 class="signup_text">Signup</h1>
+  <form method="POST" class="signup_box" name="signup_box">
+    {% if error_message %}
+    <span class="alert">{{error_message}}</span>
+    <br>
+    {% endif %}
+    {% csrf_token %}
+    {% if error_message2 %}
+    <span class="alert">{{error_message2}}</span>
+    <br>
+    {% endif %}
+    <input type="text" name="uname" placeholder="User name">
+    <br><br>
+    <input type="password" name="pwd" placeholder="Password">
+    <br><br>
+    {% if error_message1 %}
+    <span class="alert">{{error_message1}}</span>
+    <br>
+    {% endif %}
+    <input name="repwd" type="password" placeholder="Repeat password">
+    <br><br>
+    <input  class="submit" type="submit" name="submit" value="Signup">
+  </form>
+</div>
+<div class="signup_right"></div>
+{% endblock %}

@@ -1,0 +1,495 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"><!--Conditionals for IE8-9 Support-->
+<!--[if IE]>
+<html lang="en" class="ie">
+<![endif]-->
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+
+  <link rel="manifest" href="/manifest.json">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/pwa/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/pwa/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/pwa/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/pwa/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/pwa/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/pwa/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/pwa/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/pwa/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/pwa/apple-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/images/pwa/android-icon-192x192.png">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Cart2Cart">
+  <meta name="apple-mobile-web-app-title" content="Cart2Cart">
+  <meta name="theme-color" content="#48b4ee">
+  <meta name="msapplication-navbutton-color" content="#48b4ee">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="msapplication-starturl" content="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', {
+        scope: '/'
+      }).then(function(reg) {
+        //Your debug code here
+      });
+    }
+  </script>
+
+  <meta charset="utf-8">
+<title>Start Your Migration Here! - Cart2Cart</title><meta name="description" content="Unique online shopping cart migration service that allows you to transfer all your customers, products and orders from one shopping cart to another." >
+<meta name="keywords" content="shopping cart migration, move shopping cart" >
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" ><!-- Preview image for site -->
+<meta property="og:image" content="https://app.shopping-cart-migration.com/images/logo.png">
+<!-- Style CSS -->
+<link href="/css/plugins/card.css?c2cmt=7f14db3dcc9bafee4dd54e8c9822ec0d" media="screen" rel="stylesheet" type="text/css" >
+<link href="/css/plugins/select2.css?c2cmt=7f14db3dcc9bafee4dd54e8c9822ec0d" media="screen" rel="stylesheet" type="text/css" >
+<link href="/css/plugins/owl.carousel.css?c2cmt=7f14db3dcc9bafee4dd54e8c9822ec0d" media="screen" rel="stylesheet" type="text/css" >
+<link href="/css/bootstrap.min.css?c2cmt=7f14db3dcc9bafee4dd54e8c9822ec0d" media="screen" rel="stylesheet" type="text/css" >
+<link href="/css/core.css?c2cmt=7f14db3dcc9bafee4dd54e8c9822ec0d" media="screen" rel="stylesheet" type="text/css" >
+<link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" ><!-- Custom Scripts -->
+<script type="text/javascript">var HTTP_BASE_PATH = "https://app.shopping-cart-migration.com/";</script>
+<script type="text/javascript">
+    var HTTP_BASE_AJAX_PATH = "https://app.shopping-cart-migration.com/";
+</script>
+<script type="text/javascript">var FROM_TO = "";</script>
+<!-- Scripts -->
+<script type="text/javascript" src="/libs/gtm/script.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/libs/card.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/libs/modernizr.custom.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/libs/jquery-1.11.1.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<!--[if lt IE 9]><script type="text/javascript" src="/js/plugins/html5shiv.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="/js/plugins/respond.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script><![endif]-->
+<!--[if lt IE 9]><script type="text/javascript" src="/js/plugins/outdatedbrowser.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script><![endif]-->
+<script type="text/javascript" src="/js/plugins/jquery/jquery.md5.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/jquery/jquery.placeholder.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/jquery/jquery.validate.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/jquery/jquery.blockUI.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/bootstrap.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/waypoints.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/breakpoints.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/foundation.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/smoothscroll.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/select2.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/modules/scripts.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script>
+<script type="text/javascript" src="/js/plugins/jquery/jquery.easing.min.js?c2cmt=4250943d4306241f1708ed3e16467afd"></script><script async type="text/javascript">
+    window.intercomSettings = {"app_id":"hahj9re8","environment":"production","email":"ricardodiazdelavega231@gmail.com","name":"Diaz","user_id":"221845","balance":0,"discount":0,"last_migration_status":"--","partner":"N","user_hash":"58a334201a5a823091c72249db2aea63dde163dc58c334663b5f3e2cc37bf77d"};
+</script><script type="text/javascript">Cart2cart = {"Proceed to Next Step":"Proceed to Next Step","Confirm Demo Migration":"Confirm Demo Migration","Import Data":"Import Data","Full Migration":"Full Migration","Start Full Migration":"Start Full Migration","Migration Setup - ":"Migration Setup - ","Cart2Cart - Migration Setup - ":"Cart2Cart - Migration Setup - ","Start (no reduce credits)":"Start (no reduce credits)","Use your own Credits":"Use your own Credits","Click here to select entities and perform demo migration again":"Click here to select entities and perform demo migration again","back to entities selection":"back to entities selection"}</script><!-- Google Tag Manager -->
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-56TSRJ2');
+</script>
+<!-- End Google Tag Manager -->
+
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event' : 'userId',
+      'user_id' : 221845    });
+  </script>
+<script src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-3.min.js" data-apikey="7ef50fb731a2b1d70286a8ed5a1b5422"></script>
+  <script type="application/javascript">
+    //it is not so good idea to wrap this into window.onload because error might be happen before complete page load
+    Bugsnag = Bugsnag || {};
+    Bugsnag.user = {
+      id: 221845,
+      name: "Diaz Ricardo",
+      email: "ricardodiazdelavega231@gmail.com"
+    };
+  </script>
+<!-- Facebook Pixel Code -->
+<script>
+  var fbPid = '2009070739191175';
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+      n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  if (typeof(fbq) !== 'undefined') {
+          fbq('init', fbPid, {
+        em: 'ricardodiazdelavega231@gmail.com',
+        fn: 'Diaz',
+        ln: 'Ricardo',
+      });
+        window.addEventListener('load', function () {
+      fbq('track', 'PageView');
+    });
+  }
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=2009070739191175&ev=PageView&noscript=1"
+    /></noscript>
+<!-- End Facebook Pixel Code --><script type="text/javascript">
+
+  if (typeof window.hj !== 'undefined') {
+    window.hj=window.hj||function(){(hj.q=hj.q||[]).push(arguments)};
+
+    window.addEventListener('load', function() {
+            
+      let userId;
+
+            userId = '221845';
+
+      window.hj('identify', userId, {});
+          });
+  }
+</script></head>
+<body class="animated fadeIn">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56TSRJ2"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event' : 'userId',
+      'user_id' : 221845    });
+  </script>
+<!--[if lt IE 9]>
+<div id="outdated">
+  <h6>Your browser is out-of-date!</h6>
+  <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="https://outdatedbrowser.com/">Update my browser now </a></p>
+  <p class="last"><a href="javascript: return false;" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script type="text/javascript">
+  //event listener: DOM ready
+  function addLoadEvent(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+      window.onload = func;
+    } else {
+      window.onload = function() {
+        if (oldonload) {
+          oldonload();
+        }
+        func();
+      }
+    }
+  }
+  //call plugin function after DOM ready
+  addLoadEvent(function(){
+    outdatedBrowser({
+      bgColor: '#f25648',
+      color: '#ffffff',
+      lowerThan: 'transform',
+      languagePath: ''
+    });
+  });
+</script>
+<![endif]-->
+<script>
+  var cookieDomain = '.shopping-cart-migration.com';
+</script>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <div class="site-layout">
+      <div class="header-toolbar user-toolbar">
+  <div class="container">
+    <div id="user-nav-toggle"><span></span></div>
+    <ul class="tools navbar-nav user-navbar">
+            <li class="user-menu"><a href="https://app.shopping-cart-migration.com/migrations/list" title="My Migrations List">My Migrations List</a></li>
+      <li class="user-menu"><a href="https://app.shopping-cart-migration.com/profile" title="Edit Personal Info">Edit Personal Info</a></li>
+      <li class="user-menu"><a href="https://app.shopping-cart-migration.com/profile#billing" class="add-funds-link" title="Add Funds">Add Funds</a></li>
+      <li class="user-menu"><a href="https://www.shopping-cart-migration.com/contact-us" title="Contact Us">Contact Us</a></li>
+      <li class="user-menu">
+        <a href="https://app.shopping-cart-migration.com/auth/logout" title="Sign Out" onclick="trackGtagLogout();">
+          Logout        </a>
+      </li>
+      <li class="currency"><a href="https://app.shopping-cart-migration.com/profile#add-funds"><span class="icon-top"></span>$0&nbsp;<i class="fa fa-angle-down hidden"></i></a>
+        <ul class="hidden">
+          <li><a href="javascript: void(0);">&euro; Eur</a></li>
+          <li><a href="javascript: void(0);">&pound; Gbp</a></li>
+          <li><a href="javascript: void(0);">&yen; Yen</a></li>
+        </ul>
+      </li>
+                </ul>
+  </div>
+</div>
+      <div class="header">
+        <div class="container">
+          <a class="logo" href="https://app.shopping-cart-migration.com/"><img src="https://app.shopping-cart-migration.com//images/logo.png" alt="Cart2Cart - Shopping Cart Migration Service"/></a>
+          <div class="pull-right tool-free">
+            <ul>
+              <li class="phone-number"><span class="gray-text">24/7<span class="separator">|</span><span class="toll-free-img">1-800-224-1462</span></li>
+              <li class="works-days"><span class="gray-text">US &amp; Canada Toll Free</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <header class="header sticky">
+        <div class="inner">
+          <div class="container group">
+            <div id="nav-toggle" data-toggle="collapse-side" type="button" class="navbar-toggle pull-left">
+              <span></span>
+            </div>
+            <div id="user-menu-nav">
+<div class="navigation side-collapse">
+  <nav class="menu" role="navigation" id="nav">
+    <ul class="nav">
+      <li>
+        <a href="https://app.shopping-cart-migration.com/migrations/wizard/create" title="Create new Migration">Create Migration</a>
+        <span></span>
+        <ul class="submenu">
+          <li><a href="https://app.shopping-cart-migration.com/migrations/wizard/create" title="Create new Migration">Create Migration</a></li>
+          <li><a href="https://app.shopping-cart-migration.com/support-service/package" title="Purchase All-in-one Service Package">Purchase All-in-one Service Package</a></li>
+          <li><a href="/from-csv-file/migrations/wizard/create" title="Migrate from CSV file">Migrate from CSV file</a></li>
+         </ul>
+      </li>
+      <li>
+        <a href="https://app.shopping-cart-migration.com/migrations/list" title="View the list of Migrations created by you">My Migrations</a>
+        <span></span>
+      </li>
+      <li>
+        <a href="https://app.shopping-cart-migration.com/profile#balance-history" class="balance-history" title="View the list of your Balance history">My Payments</a>
+        <span></span>
+        <ul class="submenu">
+          <li><a href="https://app.shopping-cart-migration.com/profile#balance-history" class="balance-history" title="View the list of your Balance history">Balance History</a></li>
+          <li><a href="https://app.shopping-cart-migration.com/profile#billing" class="add-funds-link" title="Add Funds" id="add-funds-link">Add Funds</a></li>
+          <li><a href="https://app.shopping-cart-migration.com/profile#generate-invoice" class="generate-invoice" title="Generate invoice for your payment">Generate Invoice</a></li>
+         </ul>
+      </li>
+      <li>
+        <a class="start-here-menu" href="https://app.shopping-cart-migration.com/start-here" title="Start here your firs migration!">Start Here!</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class="tools group">
+  <div class="cart-btn menu">
+    <ul>
+      <li class="dropdown">
+        <a class="link login" href="javascript:void(0);">Hi, Diaz&nbsp;<i class="fa fa-angle-down"></i></a>
+        <ul class="submenu">
+          <li><a href="https://app.shopping-cart-migration.com/profile">Profile</a></li>
+            <li class="deliver"></li>
+                    <li><a href="https://app.shopping-cart-migration.com/auth/logout" onclick="trackGtagLogout();">Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+          </div>
+        </div>
+      </header>
+      
+
+<div class="page side-collapse-container my-migration-page">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Start Your Migration Here!</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card col-migration">
+          <span class="automated-migration">
+            <img src="https://app.shopping-cart-migration.com//images/automated-migration.png" alt="Automated Migration">
+          </span>
+                    <h4>Follow the migration Wizard</h4>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <h5><strong>What do I need to migrate?</strong></h5>
+                            <ul class="my-migration-list list-unstyled">
+                                <li><i class="fa fa-check"></i> Source and Target carts installed and available online</li>
+                                <li><i class="fa fa-check"></i> Admin access to your Source and Target shopping carts</li>
+                                <li><i class="fa fa-check"></i> FTP Access - in case either/both carts are open source</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cta text-center">
+                        <a class="btn btn-md btn-success"
+                           href="https://app.shopping-cart-migration.com/migrations/wizard/create">Start Free Demo                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card col-support text-center">
+          <span class="assisted-migration">
+            <img src="https://app.shopping-cart-migration.com//images/assisted-migration.png" alt="Automated Migration">
+          </span>
+                    <h4>Let Cart2Cart Team assist you!</h4>
+                    <h5><strong>Need some help to perform migration?</strong></h5>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1">
+                            <p>If there are any difficulties or you’re just too busy to through the migration wizard - our team of highly-skilled experts is always ready to give you a hand of help.</p>
+                        </div>
+                    </div>
+                    <div class="cta text-center">
+                        <a href="javascript: void(0);" class="btn btn-md btn-primary" onclick="Intercom('show'); return false;">Get Assisted Migration                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                    <div class="row">
+                <div class="col-md-12">
+                    <div class="card col-estimate wide">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="https://app.shopping-cart-migration.com//images/estimate-price.png" alt="Estimate Price">
+                            </div>
+                            <div class="col-md-7">
+                                <p class="estimate-title">Calculate your migration price</p>
+                                <p>Enter the number of data entities - products, customers and orders from your current store into the
+                                    Migration Estimator to see how much your migration will cost.</p>
+                                <small>Learn how to check the number of data entities in your store <a target="_blank" href="https://www.shopping-cart-migration.com//faq/1-general-questions/294-how-to-check-the-number-of-entities-on-my-current-store">here</a>.</small>
+                            </div>
+                            <div class="col-md-3">
+                                <a href="https://app.shopping-cart-migration.com/estimation-page" class="btn btn-md btn-warning">Get Estimates</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+</div>    </div>
+  </div>
+</div>
+<footer class="footer">
+  <script id="pap_x2s6df8d" src="https://affiliate.magneticone.com/scripts/clickjs.php" type="text/javascript"></script>  <script type="text/javascript">
+    // <![CDATA[
+    var CampaignID='38f65c71';
+    if (typeof papTrack == 'function') {
+      papTrack();
+    }
+    // ]]>
+  </script>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 footer-column">
+  <h3>Information</h3>
+  <ul class="list-unstyled">
+    <li><a href="https://www.shopping-cart-migration.com/faq">FAQ</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/quick-demo-tour">Quick Demo Tour</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/provided-services">Provided Services</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/blog">Blog</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/terms-of-service">Terms of Service</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/service-level-agreement">Service Level Agreement</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/privacy-policy">Privacy Policy</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/sitemap">Sitemap</a></li>
+  </ul>
+</div>
+<div class="col-md-3 col-sm-3 footer-column">
+  <h3>Support Center</h3>
+  <ul class="list-unstyled">
+    <li><a href="https://support.magneticone.com/hc/en-us/requests/new?department=cart2cart">Submit a Ticket</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/provided-services/data-migration-service-packages">Support Packages</a></li>
+    <li><noindex><a rel="nofollow" href="https://ideas.shopping-cart-migration.com/">Submit a Feature</a></noindex></li>
+    <li><a href="https://www.shopping-cart-migration.com/complaint-form">Complaint Form</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/cart2cart-videos">Video Tutorials</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/cart2cart-slideshows">Slideshow Tutorials</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/release-notes">Release Notes</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/contact-us">Contact Us</a></li>
+  </ul>
+</div>
+<div class="col-md-3 col-sm-3 footer-column">
+  <h3>For Partner</h3>
+  <ul class="list-unstyled">
+    <li><a href="https://www.shopping-cart-migration.com/become-partner">Become a Partner</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/migration-service-partners">Migration Partners</a></li>
+    <li><a href="https://www.shopping-cart-migration.com/cart2cart-press-kit">Cart2Cart Press Kit</a></li>
+    <li><a href="https://www.api2cart.com/">eCommerce API</a></li>
+  </ul>
+</div>
+<div class="col-md-3 col-sm-3 footer-column">
+  <div class="contacts">
+    <h3>Connect with Us</h3>
+    <div class="social-bar">
+      <a href="https://www.facebook.com/Cart2Cart" class="fa fa-facebook" title="Facebook"></a>
+      <a href="https://twitter.com/#!/Cart2CartBlog" class="fa fa-twitter" title="Twitter"></a>
+      <a href="https://www.youtube.com/Cart2CartVideo" class="fa fa-youtube" title="YouTube"></a>
+    </div>
+    <p>
+      Toll-Free<span class="phone">1-800-224-1462</span><br/>
+      <span class="mail">contact@shopping-cart-migration.com</span>
+    </p>
+  </div>
+</div>    </div>
+  </div>
+  <div class="copyright">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-3">
+          <p><small><a href="https://magneticone.com/" target="_blank" title="MagneticOne">MagneticOne</a> &copy; 2008-2022</small></p>
+        </div>
+                              <div class="col-sm-3 col-sm-offset-6">
+              <p><a href="https://www.shopping-cart-migration.com/release-notes" class="version">Service Version: 6.0.16671 (Oct 31, 2022)</a></p>
+            </div>
+                        </div>
+    </div>
+  </div>
+</footer>
+<div class="payment-block-container"></div>
+<div class="modal fade in" id="migration-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+        <div class="modal-content">
+            <div class="modal-body">Please wait ...</div>
+        </div>
+    </div>
+</div>
+<div class="modal fade in" id="accept-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+    <div class="modal-content">
+      <div class="modal-body">Have you received information on the specifics of data migration and are you ready to continue the migration?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="click-accept-yes">Yes</button>
+        <button type="button" class="btn btn-secondary" id="click-accept-no">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade in" id="thanks-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button></div>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="thanks-image">
+                    <img src="/images/wallet2.png">
+                </div>
+                <div class="thanks-description">
+                    <h2>Welcome aboard!<br> We've added <span>$100</span> to your Cart2Cart account</h2>
+                    <p>You're all set to try automated store migration right away!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="desktop-version" id="desktop-version">
+  <div class="container">
+    <div class="desktop-popup-text">
+      <p>Please, switch to the desktop version of a website for a better migration experience with Cart2Cart</p>
+    </div>
+    <div class="desktop-popup-buttons">
+      <a href="javascript:void(0);" class="blue" id="desktop-version-close">Close</a>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+</section>
+</body>
+</html>
