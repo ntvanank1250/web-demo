@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import User, Blog, Comment
 from django.contrib import messages
 
+# home
 def home(request):
     if 'user' in request.session:
         current_user = request.session['user']
@@ -11,7 +12,7 @@ def home(request):
     else:
        return redirect('main:login')
 
-
+# signup
 def signup(request):
     if request.method == "POST":
         uname = request.POST.get('uname')
@@ -32,6 +33,7 @@ def signup(request):
     else:
         return render(request,'main/signup.html')
 
+# login
 def login(request):
     if request.method == "POST":
         uname = request.POST.get('uname')
@@ -46,6 +48,7 @@ def login(request):
 
     return render(request, 'main/login.html')
 
+#chang password
 def changepass(request):
     current_user = request.session['user']
     param = {'current_user': current_user}
@@ -69,37 +72,13 @@ def changepass(request):
 
     return render(request, 'main/changepass.html', param)
 
+# logout
 def logout(request):
     try:
         del request.session['user']
     except:
         return redirect('main:login')
     return redirect('main:login')
-
-def music(request):
-    try:
-        if 'user' in request.session:
-            current_user = request.session['user']
-            param = {'current_user': current_user}
-            return render(request, 'main/music.html', param)
-        else:
-            return render(request, 'main/login.html')
-    except:
-        return render(request, 'main/home.html')
-
-def game(request):
-    try:
-        if 'user' in request.session:
-            current_user = request.session['user']
-            param = {'current_user': current_user}
-            return render(request, 'main/game.html', param)
-        else:
-            return render(request, 'main/login.html')
-    except:
-        return render(request, 'main/home.html')
-
-
-      
 
 def blog(request):
     current_user = request.session['user']
@@ -147,3 +126,22 @@ def add_blog(request):
             return redirect('main:blog')
     else:
         return render(request,'main/add_blog.html',param)
+
+# Pay migration
+def paypal(request):
+    if 'user' in request.session:
+        current_user = request.session['user']
+        param = {'current_user': current_user}
+        return render(request, 'main/paypal.html',param)
+    else:
+        return redirect('main:login')
+
+# Order migration
+def order(request):
+    if 'user' in request.session:
+        current_user = request.session['user']
+        param = {'current_user': current_user}
+        return render(request, 'main/order.html',param)
+    else:
+        return redirect('main:login')
+    
