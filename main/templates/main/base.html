@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load staticfiles %}
 <html>
     <head>
         <title>{% block title %} {% endblock %}</title>
@@ -7,26 +7,131 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
-        <link rel="stylesheet" type="text/css" href="{% static  'css/reset.css' %}">
-        <link rel="shortcut icon" type="image/png" href="favicon.ico" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <!-- CSS -->
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <link rel="stylesheet" href="{% static  'reset.css' %}">
+        <!-- <link rel="stylesheet" href="{% static  'bootstrap.css' %}"> -->
+        <link rel="stylesheet" href="{% static  'base.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/ntvanank1250/css_wev_demo/main/base_footer.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/ntvanank1250/css_wev_demo/main/bootstrap336min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/ntvanank1250/css_wev_demo/main/bootrap336theme.css">
 
-        <link rel="shortcut icon" type="image/png" href="{% static  'img/favicon.png' %}" />
-        <!-- <link rel="stylesheet" href="{% static  'css/base.css' %}" type="text/css"> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <style>
+            /*Footer*/
+.footer{
+    position:absolute;
+    bottom:0;
+    /*width:100%;*/
+    height: 1px;
+    z-index: 99;
+}
+
+.footer .footer-menu{
+    background: #2c323c;
+    padding: 50px 0px;
+}
+
+.footer .container{
+    margin-top: 15px;
+}
+
+.footer .footer-menu div.col-xs-3:first-child {
+    width: 34%;
+    padding: 0 9% 0 0;
+}
+
+.footer .footer-menu div.col-xs-3 {
+    padding-left: 0;
+    width: 15%;
+}
+
+
+.footer .footer-menu h3.footer-title-menu {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.footer .footer-menu ul.menu {
+    list-style-type: none;
+}
+
+.footer .footer-menu ul.menu li.menu-item {
+    padding-top: 5px;
+    padding-left: 0px !important;
+}
+
+.footer .footer-menu ul.menu li.menu-item a {
+    color: #a3a3a3;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 26px;
+}
+
+.footer .footer-menu ul.menu li.menu-item a:hover {
+    color: #fff;
+}
+
+.footer .footer-copyright {
+    background: #2c2e2e;
+    padding: 20px 0 15px;
+    color: #e6e6e6;
+}
+.form-control{
+    font-size: 15px;
+    line-height: 15px;
+}
+.footer .footer-menu ul.footer-menu-icon {
+    list-style-type: none;
+}
+
+.footer .footer-menu ul.footer-menu-icon li {
+    float: left;
+    margin-right: 10px;
+    padding-left: 0;
+}
+
+.footer .footer-menu ul.footer-menu-icon li a {
+    color: #fff;
+    opacity: 0.5;
+    -webkit-transition: all .3s ease-in-out;
+}
+
+.footer .footer-menu ul.footer-menu-icon li a i {
+    font-size: 30px;
+    color: #fff;
+}
+
+.footer .footer-menu div.image-protected {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.footer .footer-menu div.footer-text h6 {
+    color: #a3a3a3;
+    line-height: 20px;
+    margin-bottom: 20px;
+    /*font-size: 13px;*/
+    /*font-weight: 300;*/
+}
+/*End footer*/
+        </style>
+        <!-- END CSS -->
     </head>
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <!-- Nút home -->
-            <a class="navbar-brand" href="{% url 'main:home' %}">Home</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="navbar-brand" href="{% url 'main:home' %}">Home</a>
+                    </li>                    
                     <li class="nav-item ">
                         <a class="nav-link" href="#">My Migration <span class="sr-only">(current)</span></a>
                     </li>
@@ -64,21 +169,13 @@
                                 <li><a class="dropdown-item" href="https://cm.litextension.com/profile/billing">Top up Balance</a></li>
                                 <li><a class="dropdown-item" href="https://cm.litextension.com/profile/order">Order History</a></li>
                                 <li><a class="dropdown-item" href="https://cm.litextension.com/profile/billing">Download Invoice</a></li>
-                                <li><a class="dropdown-item" href="https://cm.litextension.com/logout"
-                                    onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a></li>
-                                <form id="logout-form" action="https://cm.litextension.com/logout" method="POST" style="display: none;">
-                                    <input type="hidden" name="_token" value="Jx1pRwq0qlVf1Km8IjRPhgA8BHkZ85XcYAqV1Xyj">
-                                </form>
-
+                                <li><a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a></li>
                         </ul>
                         </li>
                     {% else %}
-                    <li><a href="{% url 'main:login' %}">Login </a></li>
-                    <li><a href="{% url 'main:signup' %}">Sign Up</a></li>
-    
+                    <li class="nav-item "><a class="nav-link" href="{% url 'main:login' %}">Login </a></li>
+                    <li class="nav-item "><a class="nav-link" href="{% url 'main:signup' %}">Sign Up</a></li>
+                    </ul>        
                     {% endif %}
 
                 </ul>
@@ -87,6 +184,11 @@
         </nav>
       
            <div class="container">
+               <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+           
+               <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+           
+               <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
                   <br>
                   {% block content %}
       
@@ -95,11 +197,6 @@
                </div>
       
       
-          <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      
-          <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <!-- <header>
             <div class="header">
                 <div class="header1">
@@ -159,8 +256,85 @@
 
         </div>
         </div>
+        <footer class="footer">
 
-        <footer>
+            <div class="footer-menu col-xs-12">
+            <div class="container">
+                <div class="col-xs-3">
+                    
+                    <h3 class="footer-title-menu" style="margin-top: 0px !important;">
+                        <img src="https://cm.litextension.com/images/logo-footer.svg" alt="LitExtension logo" style="width: 250px;" />
+                    </h3>
+    
+                    <div class="clearfix"></div>
+                    <div class="image-protected">
+                        <img src="https://cm.litextension.com/images/dmca_protected.png" alt="DMCA.com Protection Status"/>
+                    </div>
+                    <div class="footer-text">
+                        <h6>All acts of faking, copying or citing a part or all of the content on this website without LitExtension permission is illegal.</h6>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <h3 class="footer-title-menu">COMPANY</h3>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="https://litextension.com/about-us.html">About LitExtension</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/success-stories-litextension.html">Success Stories</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/customer-reviews.html">Customer Reviews</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/partner-program.html">Become a Partner</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/affiliates.html">Affiliate Program</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-3">
+                    <h3 class="footer-title-menu">POLICIES</h3>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="https://litextension.com/privacy-policy.html">Privacy Policy</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/terms-conditions.html">Terms and Conditions</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/refund-policy.html">Refund Policy</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/gdpr-compliance.html">GDPR Compliance</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/data-security-policy.html">Data Security Policy</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/partnership-terms-and-conditions.html">Partnership Policy</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-xs-3">
+                    <h3 class="footer-title-menu">RESOURCES</h3>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="https://litextension.com/webinars.html">Webinars</a></li>
+                        <li class="menu-item"><a href="https://www.youtube.com/c/litextension">Video Tutorial</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/blog/">Ecommerce Blog</a></li>
+                        <li class="menu-item"><a href="https://www.facebook.com/groups/litextensioncommunity">Join Our Community</a></li>
+                    </ul>
+                </div>
+    
+                <div class="col-xs-3">
+                    <h3 class="footer-title-menu">HELP CENTER</h3>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="https://litextension.com/contact-us.html">Report a Problem</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/faq/">FAQs</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/download/payment_guide.pdf">Payment Guide</a></li>
+                        <li class="menu-item"><a href="http://litextension.zendesk.com/hc/en-us/requests">My Support Tickets</a></li>
+                        <li class="menu-item"><a href="https://litextension.com/contacts-us.html">Contact Us</a></li>
+                    </ul>
+                </div>
+    
+            </div>
+        </div>
+        
+    
+        <div class="footer-copyright row col-xs-12">
+            <div class="container">
+                <div class="col-xs-6">Copyright &copy; 2011 - 2021 LitExtension.com. All Rights Reserved.</div>
+                <div class="col-xs-6">
+                    <img src="https://cm.litextension.com/images/img-payment.png" alt="payment"/>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        window.parent.postMessage('sw-app-loaded', '*');
+    </script>
+        <!-- <footer>
             <div class="footer1">
                 <p>Author: Duy-Hieu</p>
                 <p>Email: hieuduyth98@gmail.com</p>
@@ -171,7 +345,7 @@
 
                 <p>Copyright <span>&#169;</span> Duy-Hieu All Right Reserved</p>
             </div>
-        </footer>
+        </footer> -->
 
     </body>
 

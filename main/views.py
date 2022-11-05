@@ -15,7 +15,8 @@ def home(request):
 # signup
 def signup(request):
     if request.method == "POST":
-        uname = request.POST.get('uname')
+        email = request.POST.get('email')
+        uname = request.POST.get('name')
         pwd = request.POST.get('pwd')
         repwd=request.POST.get('repwd')
 
@@ -23,11 +24,17 @@ def signup(request):
            return render(request, 'main/signup.html', {'error_message': 'Username already exists'})
         if pwd!=repwd:
             return render(request, 'main/signup.html', {'error_message1': 'password and repassword not same'})
+        if email=='':
+            return render(request, 'main/signup.html', {'error_message2': 'email cannot be blank'})
         if uname=='':
-            return render(request, 'main/signup.html', {'error_message2': 'User is must enter a username'})
+            return render(request, 'main/signup.html', {'error_message2': 'name cannot be blank'})
+        if pwd=='':
+            return render(request, 'main/signup.html', {'error_message2': 'password cannot be blank'})
+        if repwd=='':
+            return render(request, 'main/signup.html', {'error_message2': 'password cannot be blank'})
 
         else:
-            user = User(username=uname, password = pwd )
+            user = User( email = email, username = uname, password = pwd )
             user.save()
             return redirect('main:login')
     else:

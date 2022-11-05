@@ -1,62 +1,91 @@
 {% extends 'main/base.html' %}
 {% block title %} Home {% endblock %}
+{% load staticfiles %}
+
 
 {% block body %}
-<style>
-  .home_page {
-    width: 100%;
-    flex-direction: column;
-  }
+<!-- CSS -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static  'cloudflare.css' %}">
+<link rel="stylesheet" href="{% static  'home4.css' %}">
+<link rel="stylesheet" href="{% static  'base.css' %}">
+<!-- END CSS -->
+<div class="page side-collapse-container my-migration-page">
+  <div class="container">
+      <div class="row">
+          <div class= "col-md-12 text-center align-self-center">
+             <h1>START YOUR MIGRATION HERE!</h1>
+          </div>
+       </div>
 
-  .header_home {
-    width: 100%;
-    text-align: center;
-  }
 
-  .header_home img {
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-  }
+      <div class="row">
+          <div class="  col-md-6" >
+              <div class="  col-support text-center">
+           
+                  <span class="automated-migration " >
+                      <img src="https://app.shopping-cart-migration.com//images/automated-migration.png" >
+                  </span>
+      
+                  <h4 class = "text-center">Follow the migration Wizard</h4>
+                  
+                      <div class="col-xs-10 col-xs-offset-1">
+                          <h5 class ="text-center"><strong>What do I need to migrate?</strong></h5>
+                          <ul class="my-migration-list list-unstyled text-center" >
+                              <li> Source and Target carts installed and available online</li>
+                              <li> Admin access to your Source and Target shopping carts</li>
+                              <li> FTP Access - in case either/both carts are open source</li>
+                          </ul>
+                      </div>
 
-  .header_home {
-    font-size: 150%;
-  }
+                  <div class="cta text-center">
+                      <a class="btn btn-md btn-success"
+                      href="https://app.shopping-cart-migration.com/migrations/wizard/create">Start Free Demo                        </a>
+                  </div>
+              </div>
+          </div>
 
-  .body_home {
-    display: flex;
-    flex-direction: row;
-  }
+          <div class=" col-md-6 ">
+            <div class=" col-support text-center">
+              <span class="assisted-migration">
+                <img src="https://app.shopping-cart-migration.com//images/assisted-migration.png" >
+              </span>
+                <h4>Let Cart2Cart Team assist you!</h4>
+                <div class="col-xs-10 col-xs-offset-1">
+                  <h5><strong>Need some help to perform migration?</strong></h5>
+                  <p>If there are any difficulties or you’re just too busy to through the migration wizard - our team of highly-skilled experts is always ready to give you a hand of help.</p>
+                </div>
+                  <div class="cta text-center">
+                    <a href="javascript: void(0);" class="btn btn-md btn-primary" onclick="Intercom('show'); return false;">Get Assisted Migration                        </a>
+                  </div>
+                </div>
+            </div>
+          </div>
+      
 
-  .home_side {
-    width: 10%;
-  }
+          <div class="row">
+         
+              <div class="card col-sm-12">
+                  <div class=" col-estimate">
+                      <div class="text-center">
+                          <img src="https://app.shopping-cart-migration.com//images/estimate-price.png" alt="Estimate Price">
+                          <p class="estimate-title">Calculate your migration price</p>
+                          <p>Enter the number of data entities - products, customers and orders from your current store into the
+                              Migration Estimator to see how much your migration will cost.</p>
+                          <small>Learn how to check the number of data entities in your store <a target="_blank" href="https://www.shopping-cart-migration.com//faq/1-general-questions/294-how-to-check-the-number-of-entities-on-my-current-store">here</a>.</small>
+                          <a href="https://app.shopping-cart-migration.com/estimation-page" class="btn btn-md btn-warning">Get Estimates</a>
+                      </div>
+                  </div>
+              </div>
+ 
+          </div>
+      
+  </div>
+</div> 
 
-  .home_content {
-    background-color: aliceblue;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-  }
 
-  .home_content h1 {
-    text-align: center;
-  }
-   /* tablet width >=740px and width< 1024 */
-   @media only screen and (max-width:1024px) {
-    .home_side {
-    width: 1%;
-  }
-  .home_content {
-   
-    width: 49%;}
-   }
-</style>
-{% load staticfiles %}
-<!-- <link rel="stylesheet" href="{% static  'css/home.css' %}" type="text/css"> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<div class="home_page">
+<!-- <div class="home_page">
   <div class="header_home">
     <img
       src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-9/170502150_285682159813495_1331339524602775949_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=174925&_nc_ohc=XsO9eIhAd2oAX8of4P6&_nc_ht=scontent.fhan2-2.fna&oh=00_AT-J73rmemjheVXH4ftFZZdz3-CQooLSESYD8VBJ7CoBPg&oe=6283CE61"
@@ -151,11 +180,6 @@
     <div class="home_side"></div>
 
   </div>
-</div>
-
-
-
-
-
+</div> -->
 
 {% endblock %}

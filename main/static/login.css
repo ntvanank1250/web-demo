@@ -1,0 +1,185 @@
+.web-button {
+  margin: 0;
+  border: none;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+  display: inline-block;
+  box-sizing: border-box;
+  padding: 0 30px;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 46px;
+  text-align: center;
+  text-decoration: none;
+  transition: .1s ease-in-out;
+  transition-property: color, background-color, background-position, border-color, box-shadow;
+  letter-spacing: 0;
+  border-radius: 30px;
+  background-origin: border-box
+}
+
+.web-button:not(:disabled) {
+  cursor: pointer
+}
+
+.web-button::-moz-focus-inner {
+  border: 0;
+  padding: 0
+}
+
+.web-button:hover {
+  text-decoration: none
+}
+
+.web-button:focus {
+  outline: 0
+}
+.web-button input:focus{
+  border: none;
+  outline: none;
+}
+.web-button input:active{
+  border: none;
+  outline: none;
+}
+.web-button-default {
+  background-color: #42b72a;
+  color: #fff;
+  border: 1px solid rgba(229, 229, 229, 0)
+}
+
+.web-button-default:focus, .web-button-default:hover {
+  background-color: #e06522;
+  color: #fff;
+  border-color: rgba(229, 229, 231, 0)
+}
+
+.web-button-default.uk-active, .web-button-default:active {
+  background-color: #e06522;
+  color: #fff;
+  border-color: rgba(202, 202, 207, 0)
+}
+
+.web-button-primary {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid transparent;
+  box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, .1)
+}
+
+.web-button-primary:focus, .web-button-primary:hover {
+  background-color: #e06522;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-primary.uk-active, .web-button-primary:active {
+  background-color: #e06522;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-secondary {
+  background-color: #e25271;
+  color: #fff;
+  border: 1px solid transparent
+}
+
+.web-button-secondary:focus, .web-button-secondary:hover {
+  background-color: #E2527F;
+  color: #fff;
+
+  border-color: transparent
+}
+
+.web-button-secondary.uk-active, .web-button-secondary:active {
+  background-color: #e25271;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-danger {
+  background-color: #329fd9;
+  color: #fff;
+  border: 1px solid transparent
+}
+
+.web-button-danger:focus, .web-button-danger:hover {
+  background-color: #2692cc;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-danger.uk-active, .web-button-danger:active {
+  background-color: #2283b6;
+  color: #fff;
+  border-color: transparent
+}
+.web-button-purple {
+  background-color: #a46fc9;
+  color: #fff;
+  border: 1px solid transparent
+}
+
+.web-button-purple:focus, .web-button-purple:hover {
+  background-color: #a46fc9;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-purple.uk-active, .web-button-purple:active {
+  background-color: #a46fc9;
+  color: #fff;
+  border-color: transparent
+}
+.web-button-azure {
+  background-color: #5067d3;
+  color: #fff;
+  border: 1px solid transparent
+}
+
+.web-button-azure:focus, .web-button-azure:hover {
+  background-color: #5067d3;
+  color: #fff;
+  border-color: transparent
+}
+
+.web-button-azure.uk-active, .web-button-azure:active {
+  background-color: #5067d3;
+  color: #fff;
+  border-color: transparent
+}
+.web-button:disabled,
+.web-button-purple:disabled,
+.web-button-danger:disabled,
+.web-button-default:disabled,
+.web-button-primary:disabled,
+.web-button-secondary:disabled {
+  background-color: transparent;
+  color: #999;
+  border: 1px solid #e5e5e5;
+  background-image: none;
+  box-shadow: none
+}
+
+.web-button-small {
+  padding: 0 30px;
+  line-height: 35px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.web-button-large {
+  padding: 0 40px;
+  line-height: 53px;
+  font-size: .875rem
+}
+.web-button-list-migration{
+  margin-top: 5px;
+  min-width: 185px;
+}
+.web-button-hidden{
+  display: none !important;
+}

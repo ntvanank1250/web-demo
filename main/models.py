@@ -2,12 +2,20 @@ from django.db import models
 from sqlalchemy import false
 
 class User(models.Model):
-    username=models.CharField(max_length=30)
-    password = models.CharField(max_length=50)
+    email = models.CharField(max_length=100)
+    username = models.CharField(max_length=30)
+    password = models.CharField(max_length=100)
 
     def __str__(self):
-        return self.username
+        return self.email
 
+class Orders(models.Model):
+    customer_id = models.ForeignKey(User, on_delete=models.CASCADE, related_name='customer_orders')
+    price = models.CharField(max_length=30)
+    note = models.CharField(max_length=500)
+    def __str__(self):
+        return self.customer_id
+    
 class Blog(models.Model):
     # """Blog Post"""
     title=models.CharField(max_length=100, null=false)
@@ -15,6 +23,7 @@ class Blog(models.Model):
     description = models.CharField(max_length=500,null=True)
     content=models.TextField()
     date =models.DateTimeField(auto_now_add=True)
+
 
 class Comment(models.Model):
     #  """ comment"""

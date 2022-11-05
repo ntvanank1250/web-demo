@@ -1,77 +1,370 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" >
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="shortcut icon" href="https://cm.litextension.com/images/favicon.ico">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="HtbxjQIELbxNFFUUwifQATYnHJ90QKwMHrXuRTlD">
+    <meta name="title" content="Shopping Cart Migration Made Easy - LitExtension" />
+    <meta name="description" content="Ultimate Shopping Cart Migration Service to help you migration data from your store to desire shopping cart automatically" />
+    <meta name="keywords" content="shopping cart migration, move shopping cart, transfer shopping cart, migrate shopping cart" />
+    <meta name="ahrefs-site-verification" content="7af4369c6df7a232b13ed4ab00fabbd958aa9b16a5693076e0c7bf48bca0e33c">
+    <title> Shopping Cart Migration Made Easy - LitExtension </title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet"> --> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> -->
+    <!-- <link type="text/css"  href="https://cm.litextension.com/packages/select2/css/select2.css" rel="stylesheet" /> -->
+
+            <!-- <link type="text/css" rel="stylesheet" href="https://cm.litextension.com/css/bootstrap.min.css"/> -->
+            <!-- <link type="text/css" rel="stylesheet" href="https://cm.litextension.com/css/bootstrap-theme.min.css"/> -->
+            <!-- <link type="text/css" rel="stylesheet" href="https://cm.litextension.com/css/migration.css"/> -->
+            <link type="text/css" rel="stylesheet" href="https://cm.litextension.com/css/font-awesome.min.css"/>
+    
+            <script type="text/javascript" src="https://cm.litextension.com/js/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cm.litextension.com/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="https://cm.litextension.com/js/jquery.form.min.js"></script>
+            <script type="text/javascript" src="https://cm.litextension.com/js/jquery.validate.min.js"></script>
+            <script type="text/javascript" src="https://cm.litextension.com/js/cartmigration.js"></script>
+            <script type="text/javascript" src="https://cm.litextension.com/js/jquery-html-svg-connect.js"></script>
+        <script type="text/javascript"  src="https://cm.litextension.com/packages/select2/js/select2.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <!-- Styles -->
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #3a3a3a;
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            /*height: 100%;*/
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+    </style>
+
+                
+
+
+
+
+
+
+
+
+<!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KP5FDR');</script>
+    <!-- End Google Tag Manager -->
+
 </head>
 <body>
-<div class="page side-collapse-container my-migration-page">
+<div class="modal fade" id="modal-setup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+
+                <iframe id="iframeYoutube" width="1000" height="600"  src="" frameborder="0" allowfullscreen></iframe>
+
+            </div>
+            <div class="modal-close" data-dismiss="modal">
+                <div><strong><i class="fas fa-times"></i></strong></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#modal-setup').on('hidden.bs.modal', function (e) {
+            $('#iframeYoutube').attr('src', '')
+        })
+    });
+</script>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP5FDR"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Post Affiliate Pro click tracking -->
+<script type="text/javascript" id="pap_x2s6df8d" src="https://litextension.postaffiliatepro.com/scripts/trackjs.js"></script>
+<script type="text/javascript">
+    PostAffTracker.setAccountId('default1');
+    try {
+        PostAffTracker.track();
+    } catch (err) { }
+</script>
+<!-- / Post Affiliate Pro click tracking -->
+<header class="header" id="home-page">
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+		    <div class="navbar-header" style="padding: 10px 0;">
+				<a class="" href="https://cm.litextension.com/my-migrations"><span class="logo"></span></a>
+			</div>
+
+		    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		        <!-- Right Side Of Navbar -->
+		        <ul class="nav navbar-nav navbar-right" >
+		            <!-- Authentication Links -->
+		            		                <!--<li class="nav-item active"><a class="nav-link" href="https://cm.litextension.com/login">Log In</a></li> -->
+		                <!--<li class="nav-item "><a class="nav-link" href="https://cm.litextension.com/register">Sign Up</a></li> -->
+		            		        </ul>
+		    </div>
+		</div>
+	</nav>
+</header>
+<div id="app">
     <div class="container">
         <div class="row">
-            <div class= "col-md-12 text-center align-self-center">
-               <h1>START YOUR MIGRATION HERE!</h1>
-            </div>
-         </div>
+            <div class="col-xs-10 col-xs-offset-1 signin">
+                <div class="panel panel-default">
 
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card col-migration">
-          <span class="automated-migration">
-            <img src="https://app.shopping-cart-migration.com//images/automated-migration.png" alt="Automated Migration">
-          </span>
-                    <h4>Follow the migration Wizard</h4>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1">
-                            <h5><strong>What do I need to migrate?</strong></h5>
-                            <ul class="my-migration-list list-unstyled">
-                                <li><i class="fa fa-check"></i> Source and Target carts installed and available online</li>
-                                <li><i class="fa fa-check"></i> Admin access to your Source and Target shopping carts</li>
-                                <li><i class="fa fa-check"></i> FTP Access - in case either/both carts are open source</li>
-                            </ul>
+
+                    <h1 class="panel-heading" id="sign-in">Log In</h1>
+                    <h3 class="panel-heading">New to LitExtension? <a href="https://cm.litextension.com/register">Sign Up</a></h3>
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            
+                        
+                    
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-7 info-panel">
+                                <form class="form-horizontal" method="POST" action="https://cm.litextension.com/login">
+                                    <input type="hidden" name="_token" value="HtbxjQIELbxNFFUUwifQATYnHJ90QKwMHrXuRTlD">
+                                    <div style="    font-weight: 400;    font-size: 15px;    margin: 0px 55px;    font-weight: bo;"> You're about to experience a stress-free, quick & accurate migration. Just log in!</div>
+
+                                    <div class="form-group email-panel">
+                                        <label for="email" class="col-xs-2 control-label" style="text-align: left; margin-bottom: 10px;">Email</label>
+
+                                        <div class="col-xs-10">
+                                            <input id="email" type="email" class="form-control" name="email" value="" required>
+
+                                                                                    </div>
+
+                                        
+                                            
+                                            
+                                        
+                                    </div>
+
+                                    <div class="form-group password-panel">
+                                        <label for="password" class="col-xs-2 control-label" style="text-align: left; margin-bottom: 10px;">Password</label>
+
+                                        <div class="col-xs-10">
+                                            <input id="password" type="password" class="form-control" name="password" required>
+
+                                                                                    </div>
+
+                                        
+                                            
+                                            
+                                        
+                                    </div>
+
+                                    <div class="form-group remember-panel">
+                                        <div class="col-xs-6">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember" > Remember Me
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 forgot-panel">
+                                            <a class="btn btn-link" style="font-size: 15px;" href="https://cm.litextension.com/password/reset">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group button-panel">
+                                        <div class="" style="text-align: center;">
+                                            <button type="submit" class="lit-button lit-button-default signin" style="padding: 0 50px;">
+                                                Log In
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-xs-5 social-panel">
+                                <a class="btn btn-lg btn-social btn-facebook" href="redirect/facebook"><i class="fab fa-facebook-f fa-lg"></i> Sign in with Facebook</a>
+                                <a class="btn btn-lg btn-social btn-google" href="redirect/google"><i class="fab fa-google fa-lg"></i> Sign in with Google</a>
+                            </div>
+                            <div class="col-xs-12 tupp-panel">
+                                <label>
+                                    * By signing in, you agree to our <a href="https://litextension.com/terms-conditions.html">Terms and Conditions</a>, <a href="https://litextension.com/privacy-policy.html">Private Policy</a>, <a href="https://litextension.com/gdpr-compliance.html">GDPR Compliance</a> and to receive LitExtension emails & updates of the migration process.
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cta text-center">
-                        <a class="btn btn-md btn-success"
-                           href="https://app.shopping-cart-migration.com/migrations/wizard/create">Start Free Demo                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card col-support text-center">
-          <span class="assisted-migration">
-            <img src="https://app.shopping-cart-migration.com//images/assisted-migration.png" alt="Automated Migration">
-          </span>
-                    <h4>Let Cart2Cart Team assist you!</h4>
-                    <h5><strong>Need some help to perform migration?</strong></h5>
-                    <div class="row">
-                        <div class="col-xs-10 col-xs-offset-1">
-                            <p>If there are any difficulties or you’re just too busy to through the migration wizard - our team of highly-skilled experts is always ready to give you a hand of help.</p>
-                        </div>
-                    </div>
-                    <div class="cta text-center">
-                        <a href="javascript: void(0);" class="btn btn-md btn-primary" onclick="Intercom('show'); return false;">Get Assisted Migration                        </a>
                     </div>
                 </div>
             </div>
         </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card col-estimate">
-                        <div class="text-center">
-                            <img src="https://app.shopping-cart-migration.com//images/estimate-price.png" alt="Estimate Price">
-                            <p class="estimate-title">Calculate your migration price</p>
-                            <p>Enter the number of data entities - products, customers and orders from your current store into the
-                                Migration Estimator to see how much your migration will cost.</p>
-                            <small>Learn how to check the number of data entities in your store <a target="_blank" href="https://www.shopping-cart-migration.com//faq/1-general-questions/294-how-to-check-the-number-of-entities-on-my-current-store">here</a>.</small>
-                            <a href="https://app.shopping-cart-migration.com/estimation-page" class="btn btn-md btn-warning">Get Estimates</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
     </div>
-</div> 
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        $('.input100').each(function(){
+            $(this).on('blur', function(){
+                if($(this).val().trim() != "") {
+                    $(this).addClass('has-val');
+                }
+                else {
+                    $(this).removeClass('has-val');
+                }
+            })
+        })
+
+        $('a.btn-social').click(function() {
+            return openWindow(this.href);
+        })
+    </script>
+
+<footer class="footer">
+		<div class="footer-menu col-xs-12">
+		<div class="container">
+			<div class="col-xs-3">
+				
+				<h3 class="footer-title-menu" style="margin-top: 0px !important;">
+					<img src="https://cm.litextension.com/images/logo-footer.svg" alt="LitExtension logo" style="width: 250px;" />
+				</h3>
+
+				<div class="clearfix"></div>
+				<div class="image-protected">
+					<img src="https://cm.litextension.com/images/dmca_protected.png" alt="DMCA.com Protection Status"/>
+				</div>
+				<div class="footer-text">
+					<h6>All acts of faking, copying or citing a part or all of the content on this website without LitExtension permission is illegal.</h6>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<h3 class="footer-title-menu">COMPANY</h3>
+				<ul class="menu">
+					<li class="menu-item"><a href="https://litextension.com/about-us.html">About LitExtension</a></li>
+					<li class="menu-item"><a href="https://litextension.com/success-stories-litextension.html">Success Stories</a></li>
+					<li class="menu-item"><a href="https://litextension.com/customer-reviews.html">Customer Reviews</a></li>
+					<li class="menu-item"><a href="https://litextension.com/partner-program.html">Become a Partner</a></li>
+					<li class="menu-item"><a href="https://litextension.com/affiliates.html">Affiliate Program</a></li>
+					<li class="menu-item"><a href="https://litextension.com/blog">Blog</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-3">
+				<h3 class="footer-title-menu">POLICIES</h3>
+				<ul class="menu">
+					<li class="menu-item"><a href="https://litextension.com/privacy-policy.html">Privacy Policy</a></li>
+					<li class="menu-item"><a href="https://litextension.com/terms-conditions.html">Terms and Conditions</a></li>
+					<li class="menu-item"><a href="https://litextension.com/refund-policy.html">Refund Policy</a></li>
+					<li class="menu-item"><a href="https://litextension.com/gdpr-compliance.html">GDPR Compliance</a></li>
+					<li class="menu-item"><a href="https://litextension.com/data-security-policy.html">Data Security Policy</a></li>
+					<li class="menu-item"><a href="https://litextension.com/partnership-terms-and-conditions.html">Partnership Policy</a></li>
+				</ul>
+			</div>
+
+			<div class="col-xs-3">
+				<h3 class="footer-title-menu">RESOURCES</h3>
+				<ul class="menu">
+					<li class="menu-item"><a href="https://litextension.com/webinars.html">Webinars</a></li>
+					<li class="menu-item"><a href="https://www.youtube.com/c/litextension">Video Tutorial</a></li>
+					<li class="menu-item"><a href="https://litextension.com/blog/">Ecommerce Blog</a></li>
+					<li class="menu-item"><a href="https://www.facebook.com/groups/litextensioncommunity">Join Our Community</a></li>
+				</ul>
+			</div>
+
+			<div class="col-xs-3">
+				<h3 class="footer-title-menu">HELP CENTER</h3>
+				<ul class="menu">
+					<li class="menu-item"><a href="https://litextension.com/contact-us.html">Report a Problem</a></li>
+					<li class="menu-item"><a href="https://litextension.com/faq/">FAQs</a></li>
+					<li class="menu-item"><a href="https://litextension.com/download/payment_guide.pdf">Payment Guide</a></li>
+					<li class="menu-item"><a href="http://litextension.zendesk.com/hc/en-us/requests">My Support Tickets</a></li>
+					<li class="menu-item"><a href="https://litextension.com/contacts-us.html">Contact Us</a></li>
+				</ul>
+			</div>
+
+		</div>
+	</div>
+	
+
+	<div class="footer-copyright col-xs-12">
+		<div class="container">
+			<div class="col-xs-6">Copyright &copy; 2011 - 2021 LitExtension.com. All Rights Reserved.</div>
+			<div class="col-xs-6">
+				<img src="https://cm.litextension.com/images/img-payment.png" alt="payment"/>
+			</div>
+		</div>
+	</div>
+</footer>
+<script>
+	window.parent.postMessage('sw-app-loaded', '*');
+</script>
 </body>
 </html>

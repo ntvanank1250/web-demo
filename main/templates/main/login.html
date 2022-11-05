@@ -1,28 +1,62 @@
 {% extends 'main/base.html' %}
-{% block title %} Login {% endblock %}
+{% block title %} Log In {% endblock %}
 
 {% block body %}
-{% load staticfiles %}
-<link rel="stylesheet" href="{% static  'css/login.css' %}" type="text/css">
-  <div class="login_left"></div>
-  <div class="login_body" >
-    <h1 class="login_text">Login</h1>
+<!-- CSS -->
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'base.css' %}"> -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/ntvanank1250/css_wev_demo/main/login.css">
+<!-- END CSS -->
 
+<div class="col-md-12 text-center align-self-center " >
+  <br>
+    <h1 class="panel-heading" id="sign-in">Log In</h1>
+    <br>
+    <h4 class="panel-heading">New to MYWEBSITE?  <a href="{% url 'main:signup' %}">Create an account.</a></h4>
+    <div style="    font-weight: 400;    font-size: 15px;    margin: 0px 55px;    font-weight: bo;"> (*)You're about to experience a stress-free, quick & accurate migration. Just log in!</div>
     {% if error_message %}
     <div class="alert alert-primary" role="alert">
       {{error_message}}
     </div>
     {% endif %}
-    <form method="POST" class="login_box">
+    <div class="col-md-12 text-center align-self-center " >
+
+    </div>
+    <form method="POST" class="form-horizontal">
       {% csrf_token %}
-      <input type="text" name="uname" placeholder="User name">
       <br><br>
-      <input type="password" name="pwd" placeholder="Password">
-      <br><br>
-      
-      <input type="submit" name="submit" value="Login">
+      <div class="form-group row ">
+        <div class="col-md-6 text-right"><label for="email">Email:</label></div>
+        <div class="col-md-6 text-left"><input type="text" name="email" placeholder="Your email"></div>
+        <br>
+      </div>
+      <div class="form-group row">
+        <div class="col-md-6 text-right"><label for="password">Password:</label></div>
+        <div class="col-md-6 text-left"><input type="password" name="pwd" placeholder="Password"></div>
+        <br>
+      </div>
+      <br>
+      <div class="form-group button-panel">
+        <div class="" style="text-align: center;">
+            <button type="submit" name="submit" class="web-button web-button-default signin" style="padding: 0 50px">
+                Log In
+            </button>
+        </div>
+    </div>
     </form>
   </div>
-  <div class="login_right"></div>
+  <div class ="hidden_if_phone">
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+  </div>
+<div class="col-xs-12 text-center small">
+    <label>* By signing in, you agree to our <a href="https://litextension.com/terms-conditions.html">Terms and Conditions</a>, <a href="https://litextension.com/privacy-policy.html">Private Policy</a>, <a href="https://litextension.com/gdpr-compliance.html">GDPR Compliance</a> and to receive LitExtension emails & updates of the migration process.</label>
+</div>
 
 {% endblock %}

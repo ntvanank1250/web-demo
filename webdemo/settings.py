@@ -31,9 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'info',
     'main',
-    'paypal.standard.ipn',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
